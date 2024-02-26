@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://co70uskp7q7ta"]
+
+[ext_resource type="Script" path="res://scenes/units/army.gd" id="1_ie5nv"]
+[ext_resource type="PackedScene" uid="uid://bl5yawo30b2ut" path="res://scenes/units/arquebusier.tscn" id="1_yiefr"]
+
+[node name="army" type="Node2D"]
+script = ExtResource("1_ie5nv")
+
+[node name="arquebusier" parent="." instance=ExtResource("1_yiefr")]
+
+[node name="arquebusier2" parent="." instance=ExtResource("1_yiefr")]
+
+[node name="arquebusier3" parent="." instance=ExtResource("1_yiefr")]
+
+[node name="arquebusier4" parent="." instance=ExtResource("1_yiefr")]
+
+[node name="arquebusier5" parent="." instance=ExtResource("1_yiefr")]
+
+[node name="arquebusier6" parent="." instance=ExtResource("1_yiefr")]

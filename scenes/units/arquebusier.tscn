@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl5yawo30b2ut"]
+
+[ext_resource type="Texture2D" uid="uid://b7irdxipkj0wq" path="res://assets/sprites/new/mobs/regular/mata/body.png" id="1_bpdg2"]
+
+[node name="arquebusier" type="Node2D" groups=["gunner"]]
+
+[node name="body" type="Sprite2D" parent="."]
+texture = ExtResource("1_bpdg2")

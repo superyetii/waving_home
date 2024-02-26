@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://7f52amwvvxet"]
+
+[ext_resource type="PackedScene" uid="uid://co70uskp7q7ta" path="res://scenes/units/army.tscn" id="1_iohvb"]
+
+[node name="stage_1" type="Node2D"]
+
+[node name="army" parent="." instance=ExtResource("1_iohvb")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
