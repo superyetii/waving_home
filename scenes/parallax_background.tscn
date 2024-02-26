@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://cn82rcougvm4l"]
+
+[ext_resource type="Texture2D" uid="uid://cuvt3ov28pdah" path="res://assets/temp/bg/sky.png" id="1_0ap0k"]
+[ext_resource type="Script" path="res://scenes/parallax_background.gd" id="1_ckvd3"]
+[ext_resource type="Texture2D" uid="uid://bgcl5uhsvog10" path="res://assets/temp/bg/clouds_3.png" id="2_8fdej"]
+[ext_resource type="Texture2D" uid="uid://d2l40tjujxcm4" path="res://assets/temp/bg/rocks_3.png" id="2_n7od4"]
+[ext_resource type="Texture2D" uid="uid://dtl6j8i30rbdv" path="res://assets/temp/bg/rocks_2.png" id="3_5ov41"]
+[ext_resource type="Texture2D" uid="uid://cap03rwf47bsc" path="res://assets/temp/bg/clouds_2.png" id="3_tbssc"]
+[ext_resource type="Texture2D" uid="uid://djesqhrf8qs04" path="res://assets/temp/bg/rocks_1.png" id="4_3lcjx"]
+[ext_resource type="Texture2D" uid="uid://b5xeykulyhd1n" path="res://assets/temp/bg/clouds_1.png" id="4_an50v"]
+[ext_resource type="Texture2D" uid="uid://t41fbqln00dy" path="res://assets/temp/bg/pines.png" id="5_fkolu"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_ckvd3")
+
+[node name="Sky" type="Sprite2D" parent="."]
+texture = ExtResource("1_0ap0k")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Clouds3" type="Sprite2D" parent="ParallaxLayer6"]
+texture = ExtResource("2_8fdej")
+centered = false
+offset = Vector2(0, -100)
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Clouds2" type="Sprite2D" parent="ParallaxLayer5"]
+texture = ExtResource("3_tbssc")
+centered = false
+offset = Vector2(0, -100)
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Clouds1" type="Sprite2D" parent="ParallaxLayer4"]
+texture = ExtResource("4_an50v")
+centered = false
+offset = Vector2(0, -100)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Rocks3" type="Sprite2D" parent="ParallaxLayer3"]
+texture = ExtResource("2_n7od4")
+centered = false
+offset = Vector2(0, -100)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+position = Vector2(2, 0)
+motion_scale = Vector2(2, 2)
+
+[node name="Rocks2" type="Sprite2D" parent="ParallaxLayer2"]
+texture = ExtResource("3_5ov41")
+centered = false
+offset = Vector2(0, -100)
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(3, 3)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Rocks1" type="Sprite2D" parent="ParallaxLayer1"]
+texture = ExtResource("4_3lcjx")
+centered = false
+offset = Vector2(0, -100)
+
+[node name="ParallaxLayer0" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(50, 50)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="Pines" type="Sprite2D" parent="ParallaxLayer0"]
+texture = ExtResource("5_fkolu")
+centered = false
+offset = Vector2(0, -100)

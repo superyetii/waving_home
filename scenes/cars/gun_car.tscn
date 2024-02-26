@@ -1,0 +1,1941 @@
+[gd_scene load_steps=58 format=3 uid="uid://dlit5efmnbf6l"]
+
+[ext_resource type="Script" path="res://scenes/cars/gun_car.gd" id="1_5hrr2"]
+[ext_resource type="Texture2D" uid="uid://c11mjpqga4ckj" path="res://assets/sprites/new/itim/leg.png" id="2_qa7go"]
+[ext_resource type="Texture2D" uid="uid://burcylal830tb" path="res://assets/sprites/new/itim/arm.png" id="3_5bgsu"]
+[ext_resource type="Texture2D" uid="uid://gfwgvmm217w7" path="res://assets/sprites/new/itim/body.png" id="4_f6dej"]
+[ext_resource type="Texture2D" uid="uid://cp8qoomcj8ri8" path="res://assets/sprites/new/train/gun_car/gatling/body.png" id="5_m4vg1"]
+[ext_resource type="Texture2D" uid="uid://c8r0gw08fx5oy" path="res://assets/sprites/new/itim/eye_white.png" id="5_qdprp"]
+[ext_resource type="Texture2D" uid="uid://bbg6guaexr3hs" path="res://assets/sprites/new/itim/pupil.png" id="6_3ungv"]
+[ext_resource type="Texture2D" uid="uid://cwetvw6hh567p" path="res://assets/sprites/new/train/gun_car/gatling/roof_mount.png" id="6_ybkmm"]
+[ext_resource type="Texture2D" uid="uid://d0gc7oinsdyja" path="res://assets/sprites/new/itim/eyeLid.png" id="7_l11cl"]
+[ext_resource type="Texture2D" uid="uid://brxkulsv0cohn" path="res://assets/sprites/new/train/gun_car/gatling/mount.png" id="7_s60cl"]
+[ext_resource type="PackedScene" uid="uid://bdw8t50uo8l14" path="res://scenes/projectiles/bullet_spawner_g.tscn" id="9_37dvo"]
+[ext_resource type="Texture2D" uid="uid://djktir7gjg6l8" path="res://assets/sprites/new/train/gun_car/gatling/platform.png" id="10_y0kbr"]
+[ext_resource type="Texture2D" uid="uid://phuju0x33154" path="res://assets/sprites/new/train/gun_car/gatling/wall.png" id="11_kkg17"]
+[ext_resource type="Texture2D" uid="uid://c4a4bco5q1r3n" path="res://assets/sprites/new/train/gun_car/gatling/timer.png" id="12_6td1w"]
+[ext_resource type="Texture2D" uid="uid://uontcfrd16a0" path="res://assets/sprites/new/train/locomotive/wheel.png" id="14_s55ex"]
+[ext_resource type="Texture2D" uid="uid://bef6umseeajdg" path="res://assets/sprites/new/train/gun_car/body.png" id="15_lngur"]
+[ext_resource type="Texture2D" uid="uid://bh5lgqa4lympc" path="res://assets/sprites/new/train/gun_car/gun_mount.png" id="17_fs5jc"]
+[ext_resource type="Texture2D" uid="uid://gf6jiv4jc5uh" path="res://assets/sprites/new/train/covershield/shield.png" id="17_h2dps"]
+[ext_resource type="PackedScene" uid="uid://ckslml5b1wqfc" path="res://scenes/projectiles/bullet_spawner.tscn" id="18_o8126"]
+[ext_resource type="Texture2D" uid="uid://cfxao52suovdg" path="res://assets/sprites/new/train/covershield/warning_sign.png" id="18_os0ri"]
+[ext_resource type="Texture2D" uid="uid://dhgfsu0binib5" path="res://assets/sprites/new/train/gun_car/gun.png" id="18_p8p5o"]
+
+[sub_resource type="Animation" id="Animation_yeod2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-46, -6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/rightarm_pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.244346]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/leftarm_pivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.244346]
+}
+
+[sub_resource type="Animation" id="Animation_kc0gc"]
+resource_name = "load_gatling"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-46, -23), Vector2(-46, -23), Vector2(-11.5385, -336.923), Vector2(-46, -333.846), Vector2(-83, -287.692), Vector2(-83, -293.077)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/rightarm_pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.23744, 1.23744, -0.747001, -0.747001, 0.244346]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/leftarm_pivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.48877, 1.48877, -1.82212, -1.82212, 0.244346]
+}
+
+[sub_resource type="Animation" id="Animation_0abyo"]
+resource_name = "load_weapon"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-46, -23), Vector2(-46, -109), Vector2(-46, -61), Vector2(-46, -67)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/rightarm_pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.23744, -0.747001, -0.747001, 0.244346]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/leftarm_pivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.48877, -1.82212, -1.82212, 0.244346]
+}
+
+[sub_resource type="Animation" id="Animation_hhkbw"]
+resource_name = "unload_gatling"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-83, -360), Vector2(-83, -354), Vector2(-46, -422), Vector2(0, -356), Vector2(-46, -23), Vector2(-46, -23)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/rightarm_pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.244346, -0.747001, -0.747001, 1.23744, 1.23744]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/leftarm_pivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.244346, -1.82212, -1.82212, 1.48877, 1.48877]
+}
+
+[sub_resource type="Animation" id="Animation_lv2r6"]
+resource_name = "unload_weapon"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-46, -67), Vector2(-46, -61), Vector2(-46, -109), Vector2(-46, -23)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body/rightarm_pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.244346, -0.747001, -0.747001, 1.23744]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/leftarm_pivot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.244346, -1.82212, -1.82212, 1.48877]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iq8gx"]
+_data = {
+"RESET": SubResource("Animation_yeod2"),
+"load_gatling": SubResource("Animation_kc0gc"),
+"load_weapon": SubResource("Animation_0abyo"),
+"unload_gatling": SubResource("Animation_hhkbw"),
+"unload_weapon": SubResource("Animation_lv2r6")
+}
+
+[sub_resource type="Animation" id="Animation_cx302"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/body/gun_base:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(33, 40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/body/gun_base/gun_rotation spot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/body/gun_base/gun_rotation spot/gun:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -49)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/body/gun_base:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/body/gun_base/gun_rotation spot/gun:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("gatlinggun_base/gatling_body:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, -201)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 72)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -61)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("gatlinggun_base/gatling_body/gunnerplatform:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -32)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("gatlinggun_base/gatling_body/gunnerplatform/gunnerwall:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-48, -30)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("gatlinggun_base/gatling_body/gunnerplatform/gunnerwall/gunner_roof:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(37.5, -49)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun1:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-29, -79)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun2:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16, -101)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun3:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -79)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun4:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, -101)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun5:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(29, -79)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("gatlinggun_base/gatling_body/gunnerplatform/gunnerwall/gunner_roof:scale")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("gatlinggun_base/gatling_body/gunnerplatform/gunnerwall:scale")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Skeleton2D/body/covershield_base/covershield_body:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, -53.15)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Skeleton2D/body/covershield_base/covershield_body:scale")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.012, 0.036)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Skeleton2D/body/covershield_base/warning_sign:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, -59)]
+}
+
+[sub_resource type="Animation" id="Animation_87p8n"]
+resource_name = "basegun_recoil"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/body/gun_base/gun_rotation spot/gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -49), Vector2(0, -30), Vector2(0, -49)]
+}
+
+[sub_resource type="Animation" id="Animation_rb4ad"]
+resource_name = "coverdown"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/body/covershield_base/covershield_body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -205), Vector2(-12, -53.15), Vector2(-12, -53.15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/body/covershield_base/covershield_body:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 2.9), Vector2(1, -0.0355768), Vector2(1, -0.0355768)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/body/covershield_base/warning_sign:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -359), Vector2(-12, -59), Vector2(-12, -59)]
+}
+
+[sub_resource type="Animation" id="Animation_sn8kb"]
+resource_name = "coverup"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/body/covershield_base/covershield_body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -53.15), Vector2(-12, -53.15), Vector2(-12, -205)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/body/covershield_base/covershield_body:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, -0.0355768), Vector2(1, -0.0355768), Vector2(1, 2.9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/body/covershield_base/warning_sign:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -59), Vector2(-12, -59), Vector2(-12, -359)]
+}
+
+[sub_resource type="Animation" id="Animation_13jxr"]
+resource_name = "load_gatling"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gatlinggun_base/gatling_body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -201), Vector2(-12, -201), Vector2(-12, -201), Vector2(-12, -201), Vector2(-12, -201)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(10, -125), Vector2(10, -125), Vector2(10, -166), Vector2(10, -171), Vector2(10, -166), Vector2(10, -166), Vector2(10, -166)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0, 1.5708, 1.5708]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 151), Vector2(0, 151), Vector2(0, 151), Vector2(0, -61), Vector2(0, -61), Vector2(0, -61)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("gatlinggun_base/gatling_body/gunnerplatform:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, -134), Vector2(-88, -134), Vector2(-71, -134), Vector2(-71, -134), Vector2(-71, -134), Vector2(-71, -134)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("gatlinggun_base/gatling_body/gunnerplatform/gunnerwall:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-48, -2.5), Vector2(-48, -2.5), Vector2(-48, -30), Vector2(-48, -30), Vector2(-48, -30)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("gatlinggun_base/gatling_body/gunnerplatform/gunnerwall/gunner_roof:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(37.5, -49), Vector2(37.5, -49), Vector2(37.5, -49), Vector2(37.5, -49), Vector2(37.5, -49)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun1:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-29, -79), Vector2(-29, -79), Vector2(-29, -79), Vector2(-29, 30), Vector2(-29, 30), Vector2(-29, -79)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun2:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-16, -101), Vector2(-16, -101), Vector2(-16, -101), Vector2(-16, 8), Vector2(-16, 8), Vector2(-16, -101)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun3:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -79), Vector2(0, -79), Vector2(0, -79), Vector2(0, 30), Vector2(0, 30), Vector2(0, -79)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun4:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(16, -101), Vector2(16, -101), Vector2(16, -101), Vector2(16, 8), Vector2(16, 8), Vector2(16, -101)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun5:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(29, -79), Vector2(29, -79), Vector2(29, -79), Vector2(29, 30), Vector2(29, 30), Vector2(29, -79)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.6, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("gatlinggun_base/gatling_body/gunnerplatform/gunnerwall/gunner_roof:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("gatlinggun_base/gatling_body/gunnerplatform/gunnerwall:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 0.0833333), Vector2(1, 0.0833333), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3yonv"]
+resource_name = "load_weapon"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/body/gun_base:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(33, 37), Vector2(33, -70), Vector2(33, -70), Vector2(33, -70)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/body/gun_base/gun_rotation spot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.785398]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/body/gun_base/gun_rotation spot/gun:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -49), Vector2(0, 35.6667), Vector2(0, -49), Vector2(0, -49)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/body/gun_base:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/body/gun_base/gun_rotation spot/gun:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8ptpt"]
+resource_name = "unload_gatling"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gatlinggun_base/gatling_body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, -201), Vector2(-12, -201), Vector2(-12, -201), Vector2(-12, -201), Vector2(-12, -201)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(10, -166), Vector2(10, -166), Vector2(10, -166), Vector2(10, -171), Vector2(10, -166), Vector2(10, -125), Vector2(10, -125)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.5708, 1.5708, 0.0, 0.0, 0.0, 0.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.4, 0.5, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -61), Vector2(0, -61), Vector2(0, -61), Vector2(0, 151), Vector2(0, 151), Vector2(0, 151)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("gatlinggun_base/gatling_body/gunnerplatform:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-71, -134), Vector2(-71, -134), Vector2(-71, -134), Vector2(-71, -134), Vector2(-1, -134)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("gatlinggun_base/gatling_body/gunnerplatform/gunnerwall:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-48, -30), Vector2(-48, -30), Vector2(-48, -30), Vector2(-48, -2.5), Vector2(-48, -2.5)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("gatlinggun_base/gatling_body/gunnerplatform/gunnerwall/gunner_roof:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1, 0.4, 0.5, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(37.5, -49), Vector2(37.5, -49), Vector2(37.5, -49), Vector2(37.5, -49), Vector2(37.5, -49)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun1:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-29, -79), Vector2(-29, 30), Vector2(-29, 30), Vector2(-29, -79), Vector2(-29, -79), Vector2(-29, -79)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun2:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-16, -101), Vector2(-16, 8), Vector2(-16, 8), Vector2(-16, -101), Vector2(-16, -101), Vector2(-16, -101)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun3:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -79), Vector2(0, 30), Vector2(0, 30), Vector2(0, -79), Vector2(0, -79), Vector2(0, -79)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun4:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(16, -101), Vector2(16, 8), Vector2(16, 8), Vector2(16, -101), Vector2(16, -101), Vector2(16, -101)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun5:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(29, -79), Vector2(29, 30), Vector2(29, 30), Vector2(29, -79), Vector2(29, -79), Vector2(29, -79)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.4, 0.5, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.1, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("gatlinggun_base/gatling_body/gunnerplatform/gunnerwall/gunner_roof:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.1, 0.4, 0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("gatlinggun_base/gatling_body/gunnerplatform/gunnerwall:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0.1, 0.4, 0.6, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 0.0833333), Vector2(1, 0.0833333)]
+}
+
+[sub_resource type="Animation" id="Animation_l6foo"]
+resource_name = "unload_weapon"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/body/gun_base:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(33, -70), Vector2(33, -70), Vector2(33, -70), Vector2(33, 37)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/body/gun_base/gun_rotation spot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.785398, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/body/gun_base/gun_rotation spot/gun:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -49), Vector2(0, -49), Vector2(0, 35.6667), Vector2(0, -49)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/body/gun_base:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/body/gun_base/gun_rotation spot/gun:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d0ecd"]
+_data = {
+"RESET": SubResource("Animation_cx302"),
+"basegun_recoil": SubResource("Animation_87p8n"),
+"coverdown": SubResource("Animation_rb4ad"),
+"coverup": SubResource("Animation_sn8kb"),
+"load_gatling": SubResource("Animation_13jxr"),
+"load_weapon": SubResource("Animation_3yonv"),
+"unload_gatling": SubResource("Animation_8ptpt"),
+"unload_weapon": SubResource("Animation_l6foo")
+}
+
+[sub_resource type="Animation" id="Animation_kmy7r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/body/body2/wheels/wheel1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/body/body2/wheels/wheel2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/body/body2/wheels/wheel3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/body/body2/wheels/wheel1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-70, 63)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/body/body2/wheels/wheel2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 63)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/body/body2/wheels/wheel3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(82, 63)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Skeleton2D/body/body2/wheels:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_slq5t"]
+resource_name = "run"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/body/body2/wheels/wheel1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/body/body2/wheels/wheel2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/body/body2/wheels/wheel3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/body/body2/wheels:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-4, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ehk1x"]
+_data = {
+"RESET": SubResource("Animation_kmy7r"),
+"run": SubResource("Animation_slq5t")
+}
+
+[sub_resource type="Animation" id="Animation_1616u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-29, -79)]
+}
+
+[sub_resource type="Animation" id="Animation_w8cc8"]
+resource_name = "basegun_recoil"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-29, -79), Vector2(-29, -49), Vector2(-29, -79)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dyjt1"]
+_data = {
+"RESET": SubResource("Animation_1616u"),
+"basegun_recoil": SubResource("Animation_w8cc8")
+}
+
+[sub_resource type="Animation" id="Animation_qscf1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16, -101)]
+}
+
+[sub_resource type="Animation" id="Animation_8j6lb"]
+resource_name = "basegun_recoil"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-16, -101), Vector2(-16, -71), Vector2(-16, -101)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7p4tj"]
+_data = {
+"RESET": SubResource("Animation_qscf1"),
+"basegun_recoil": SubResource("Animation_8j6lb")
+}
+
+[sub_resource type="Animation" id="Animation_bs6n6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -79)]
+}
+
+[sub_resource type="Animation" id="Animation_f1nja"]
+resource_name = "basegun_recoil"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -79), Vector2(0, -49), Vector2(0, -79)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cscrw"]
+_data = {
+"RESET": SubResource("Animation_bs6n6"),
+"basegun_recoil": SubResource("Animation_f1nja")
+}
+
+[sub_resource type="Animation" id="Animation_w0nms"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, -101)]
+}
+
+[sub_resource type="Animation" id="Animation_jqncp"]
+resource_name = "basegun_recoil"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun4:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(16, -101), Vector2(16, -71), Vector2(16, -101)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_grttd"]
+_data = {
+"RESET": SubResource("Animation_w0nms"),
+"basegun_recoil": SubResource("Animation_jqncp")
+}
+
+[sub_resource type="Animation" id="Animation_j8dic"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(29, -79)]
+}
+
+[sub_resource type="Animation" id="Animation_80kug"]
+resource_name = "basegun_recoil"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(29, -79), Vector2(29, -49), Vector2(29, -79)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dudmg"]
+_data = {
+"RESET": SubResource("Animation_j8dic"),
+"basegun_recoil": SubResource("Animation_80kug")
+}
+
+[sub_resource type="Animation" id="Animation_h2peq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("platform:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 26)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(65, -50)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("platform:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ci5ff"]
+resource_name = "extend"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("platform:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 26), Vector2(0, -26), Vector2(0, -26), Vector2(0, -66.375)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(65, -50), Vector2(65, -50)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("platform:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 2.34583)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qtdfw"]
+_data = {
+"RESET": SubResource("Animation_h2peq"),
+"extend": SubResource("Animation_ci5ff")
+}
+
+[node name="gun_car" type="Node2D" node_paths=PackedStringArray("defaultGun", "gatlingGun1", "gatlingGun2", "gatlingGun3", "gatlingGun4", "gatlingGun5")]
+script = ExtResource("1_5hrr2")
+defaultGun = NodePath("Skeleton2D/body/gun_base/gun_rotation spot/gun/bullet_spawner")
+gatlingGun1 = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun1/bullet_spawner_g")
+gatlingGun2 = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun2/bullet_spawner_g")
+gatlingGun3 = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun3/bullet_spawner_g")
+gatlingGun4 = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun4/bullet_spawner_g")
+gatlingGun5 = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun5/bullet_spawner_g")
+
+[node name="uling" type="Sprite2D" parent="."]
+position = Vector2(15, 16)
+scale = Vector2(1.3, 1.3)
+
+[node name="leftleg" type="Sprite2D" parent="uling"]
+position = Vector2(-35, 18)
+texture = ExtResource("2_qa7go")
+
+[node name="rightleg" type="Sprite2D" parent="uling"]
+position = Vector2(-45, 18)
+texture = ExtResource("2_qa7go")
+
+[node name="rightarm" type="Sprite2D" parent="uling"]
+position = Vector2(-25.3565, 2.90306)
+rotation = 0.244346
+texture = ExtResource("3_5bgsu")
+
+[node name="body" type="Sprite2D" parent="uling"]
+position = Vector2(-46, -6)
+texture = ExtResource("4_f6dej")
+
+[node name="eye1" type="Sprite2D" parent="uling/body"]
+position = Vector2(1, 0)
+texture = ExtResource("5_qdprp")
+
+[node name="pupil" type="Sprite2D" parent="uling/body/eye1"]
+position = Vector2(3, 0)
+texture = ExtResource("6_3ungv")
+
+[node name="eyelid" type="Sprite2D" parent="uling/body/eye1"]
+visible = false
+position = Vector2(0, -4)
+texture = ExtResource("7_l11cl")
+
+[node name="eye2" type="Sprite2D" parent="uling/body"]
+position = Vector2(15, 0)
+texture = ExtResource("5_qdprp")
+
+[node name="pupil" type="Sprite2D" parent="uling/body/eye2"]
+position = Vector2(3, 0)
+texture = ExtResource("6_3ungv")
+
+[node name="eyelid" type="Sprite2D" parent="uling/body/eye2"]
+visible = false
+position = Vector2(0, -4)
+texture = ExtResource("7_l11cl")
+
+[node name="leftarm_pivot" type="Sprite2D" parent="uling/body"]
+position = Vector2(-11, 6)
+rotation = 0.244346
+
+[node name="leftarm" type="Sprite2D" parent="uling/body/leftarm_pivot"]
+position = Vector2(12, 0)
+texture = ExtResource("3_5bgsu")
+
+[node name="rightarm_pivot" type="Sprite2D" parent="uling/body"]
+position = Vector2(9, 6)
+rotation = 0.244346
+
+[node name="rightarm" type="RemoteTransform2D" parent="uling/body/rightarm_pivot"]
+position = Vector2(12, 0)
+remote_path = NodePath("../../../rightarm")
+
+[node name="leftleg_pivot" type="Sprite2D" parent="uling/body"]
+position = Vector2(10, 17)
+
+[node name="leftleg" type="RemoteTransform2D" parent="uling/body/leftleg_pivot"]
+position = Vector2(1, 7)
+remote_path = NodePath("../../../leftleg")
+
+[node name="rightleg_pivot" type="Sprite2D" parent="uling/body"]
+position = Vector2(0, 17)
+
+[node name="rightleg" type="RemoteTransform2D" parent="uling/body/rightleg_pivot"]
+position = Vector2(1, 7)
+remote_path = NodePath("../../../rightleg")
+
+[node name="boboanimationPlayer" type="AnimationPlayer" parent="uling"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_iq8gx")
+}
+
+[node name="gatlinggun_base" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="gatling_body" type="Sprite2D" parent="gatlinggun_base"]
+position = Vector2(-12, -201)
+texture = ExtResource("5_m4vg1")
+
+[node name="gatling_gunmount" type="Sprite2D" parent="gatlinggun_base/gatling_body"]
+position = Vector2(10, 72)
+texture = ExtResource("6_ybkmm")
+
+[node name="loadGatlingTimer" type="Timer" parent="gatlinggun_base/gatling_body/gatling_gunmount"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="gun_rotation spot" type="Sprite2D" parent="gatlinggun_base/gatling_body/gatling_gunmount"]
+position = Vector2(0, 10)
+
+[node name="gatling_gunbase" type="Sprite2D" parent="gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot"]
+position = Vector2(0, -61)
+texture = ExtResource("7_s60cl")
+
+[node name="gun1" type="Sprite2D" parent="gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase"]
+position = Vector2(-29, -79)
+texture = ExtResource("18_p8p5o")
+
+[node name="bullet_spawner_g" parent="gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun1" node_paths=PackedStringArray("recoilanimationPlayer", "rotation_pivot") instance=ExtResource("9_37dvo")]
+position = Vector2(-3.51762e-05, -36)
+recoilanimationPlayer = NodePath("../../../../../../../gatlingAnimation1")
+rotation_pivot = NodePath("../../..")
+initialDelay = 1.0
+
+[node name="gun2" type="Sprite2D" parent="gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase"]
+position = Vector2(-16, -101)
+texture = ExtResource("18_p8p5o")
+
+[node name="bullet_spawner_g" parent="gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun2" node_paths=PackedStringArray("recoilanimationPlayer", "rotation_pivot") instance=ExtResource("9_37dvo")]
+position = Vector2(-2.38419e-07, -36)
+recoilanimationPlayer = NodePath("../../../../../../../gatlingAnimation1/gatlingAnimation2")
+rotation_pivot = NodePath("../../..")
+initialDelay = 1.2
+
+[node name="gun3" type="Sprite2D" parent="gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase"]
+position = Vector2(0, -79)
+texture = ExtResource("18_p8p5o")
+
+[node name="bullet_spawner_g" parent="gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun3" node_paths=PackedStringArray("recoilanimationPlayer", "rotation_pivot") instance=ExtResource("9_37dvo")]
+position = Vector2(-3.43453e-05, -36)
+recoilanimationPlayer = NodePath("../../../../../../../gatlingAnimation1/gatlingAnimation2/gatlingAnimation3")
+rotation_pivot = NodePath("../../..")
+initialDelay = 1.4
+
+[node name="gun4" type="Sprite2D" parent="gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase"]
+position = Vector2(16, -101)
+texture = ExtResource("18_p8p5o")
+
+[node name="bullet_spawner_g" parent="gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun4" node_paths=PackedStringArray("recoilanimationPlayer", "rotation_pivot") instance=ExtResource("9_37dvo")]
+position = Vector2(-3.48993e-05, -36)
+recoilanimationPlayer = NodePath("../../../../../../../gatlingAnimation1/gatlingAnimation2/gatlingAnimation3/gatlingAnimation4")
+rotation_pivot = NodePath("../../..")
+initialDelay = 1.6
+
+[node name="gun5" type="Sprite2D" parent="gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase"]
+position = Vector2(29, -79)
+texture = ExtResource("18_p8p5o")
+
+[node name="bullet_spawner_g" parent="gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun5" node_paths=PackedStringArray("recoilanimationPlayer", "rotation_pivot") instance=ExtResource("9_37dvo")]
+position = Vector2(-5.67026e-07, -36)
+recoilanimationPlayer = NodePath("../../../../../../../gatlingAnimation1/gatlingAnimation2/gatlingAnimation3/gatlingAnimation4/gatlingAnimation5")
+rotation_pivot = NodePath("../../..")
+initialDelay = 1.8
+
+[node name="gunnerplatform" type="Sprite2D" parent="gatlinggun_base/gatling_body"]
+position = Vector2(-2, -32)
+texture = ExtResource("10_y0kbr")
+
+[node name="gunnerwall" type="Sprite2D" parent="gatlinggun_base/gatling_body/gunnerplatform"]
+position = Vector2(-48, -30)
+texture = ExtResource("11_kkg17")
+
+[node name="gunner_roof" type="Sprite2D" parent="gatlinggun_base/gatling_body/gunnerplatform/gunnerwall"]
+position = Vector2(37.5, -49)
+texture = ExtResource("6_ybkmm")
+
+[node name="charge1" type="Sprite2D" parent="gatlinggun_base/gatling_body"]
+unique_name_in_owner = true
+position = Vector2(0, 110)
+texture = ExtResource("12_6td1w")
+
+[node name="charge2" type="Sprite2D" parent="gatlinggun_base/gatling_body"]
+unique_name_in_owner = true
+position = Vector2(0, 70)
+texture = ExtResource("12_6td1w")
+
+[node name="charge3" type="Sprite2D" parent="gatlinggun_base/gatling_body"]
+unique_name_in_owner = true
+position = Vector2(0, 30)
+texture = ExtResource("12_6td1w")
+
+[node name="charge4" type="Sprite2D" parent="gatlinggun_base/gatling_body"]
+unique_name_in_owner = true
+position = Vector2(0, -10)
+texture = ExtResource("12_6td1w")
+
+[node name="charge5" type="Sprite2D" parent="gatlinggun_base/gatling_body"]
+unique_name_in_owner = true
+position = Vector2(0, -50)
+texture = ExtResource("12_6td1w")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="body" type="Sprite2D" parent="Skeleton2D"]
+texture = ExtResource("15_lngur")
+
+[node name="gun_base" type="Sprite2D" parent="Skeleton2D/body"]
+position = Vector2(33, 40)
+texture = ExtResource("17_fs5jc")
+
+[node name="loadGunTimer" type="Timer" parent="Skeleton2D/body/gun_base"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="gun_rotation spot" type="Sprite2D" parent="Skeleton2D/body/gun_base"]
+unique_name_in_owner = true
+position = Vector2(0, 11)
+
+[node name="gun" type="Sprite2D" parent="Skeleton2D/body/gun_base/gun_rotation spot"]
+position = Vector2(0, -49)
+texture = ExtResource("18_p8p5o")
+
+[node name="bullet_spawner" parent="Skeleton2D/body/gun_base/gun_rotation spot/gun" node_paths=PackedStringArray("recoilanimationPlayer", "rotation_pivot") instance=ExtResource("18_o8126")]
+position = Vector2(0, -35)
+recoilanimationPlayer = NodePath("../../../../../../weaponsAnimation")
+rotation_pivot = NodePath("../..")
+
+[node name="covershield_base" type="Sprite2D" parent="Skeleton2D/body"]
+unique_name_in_owner = true
+visible = false
+
+[node name="covershield_body" type="Sprite2D" parent="Skeleton2D/body/covershield_base"]
+position = Vector2(-12, -53.15)
+scale = Vector2(0.012, 0.036)
+texture = ExtResource("17_h2dps")
+
+[node name="warning_sign" type="Sprite2D" parent="Skeleton2D/body/covershield_base"]
+position = Vector2(-12, -59)
+texture = ExtResource("18_os0ri")
+
+[node name="body2" type="Sprite2D" parent="Skeleton2D/body"]
+texture = ExtResource("15_lngur")
+
+[node name="wheels" type="Sprite2D" parent="Skeleton2D/body/body2"]
+
+[node name="wheel1" type="Sprite2D" parent="Skeleton2D/body/body2/wheels"]
+position = Vector2(-70, 63)
+texture = ExtResource("14_s55ex")
+
+[node name="wheel2" type="Sprite2D" parent="Skeleton2D/body/body2/wheels"]
+position = Vector2(3, 63)
+texture = ExtResource("14_s55ex")
+
+[node name="wheel3" type="Sprite2D" parent="Skeleton2D/body/body2/wheels"]
+position = Vector2(82, 63)
+texture = ExtResource("14_s55ex")
+
+[node name="weaponsAnimation" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_d0ecd")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_ehk1x")
+}
+
+[node name="InitialTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+process_callback = 0
+one_shot = true
+autostart = true
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="covershieldTimer1" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.3
+one_shot = true
+
+[node name="covershieldTimer2" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
+[node name="covershieldTimer3" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
+[node name="gatlinggunTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.5
+one_shot = true
+
+[node name="unloadGatlingTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="gatlingAnimation1" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dyjt1")
+}
+
+[node name="gatlingAnimation2" type="AnimationPlayer" parent="gatlingAnimation1"]
+libraries = {
+"": SubResource("AnimationLibrary_7p4tj")
+}
+
+[node name="gatlingAnimation3" type="AnimationPlayer" parent="gatlingAnimation1/gatlingAnimation2"]
+libraries = {
+"": SubResource("AnimationLibrary_cscrw")
+}
+
+[node name="gatlingAnimation4" type="AnimationPlayer" parent="gatlingAnimation1/gatlingAnimation2/gatlingAnimation3"]
+libraries = {
+"": SubResource("AnimationLibrary_grttd")
+}
+
+[node name="gatlingAnimation5" type="AnimationPlayer" parent="gatlingAnimation1/gatlingAnimation2/gatlingAnimation3/gatlingAnimation4"]
+root_node = NodePath("../../../..")
+libraries = {
+"": SubResource("AnimationLibrary_dudmg")
+}
+
+[node name="platform_pivot" type="Sprite2D" parent="."]
+position = Vector2(65, -50)
+
+[node name="platform" type="Sprite2D" parent="platform_pivot"]
+position = Vector2(0, 26)
+texture = ExtResource("11_kkg17")
+
+[node name="platformPlayer" type="AnimationPlayer" parent="platform_pivot"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_qtdfw")
+}
+
+[connection signal="timeout" from="gatlinggun_base/gatling_body/gatling_gunmount/loadGatlingTimer" to="." method="_on_load_gatling_timer_timeout"]
+[connection signal="timeout" from="Skeleton2D/body/gun_base/loadGunTimer" to="." method="_on_load_gun_timer_timeout"]
+[connection signal="timeout" from="InitialTimer" to="." method="_on_initial_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="covershieldTimer1" to="." method="_on_covershield1_timer_timeout"]
+[connection signal="timeout" from="covershieldTimer2" to="." method="_on_covershield_timer_2_timeout"]
+[connection signal="timeout" from="covershieldTimer3" to="." method="_on_covershield_timer_3_timeout"]
+[connection signal="timeout" from="gatlinggunTimer" to="." method="_on_gatlinggun_timer_timeout"]
+[connection signal="timeout" from="unloadGatlingTimer" to="." method="_on_unload_gatling_timer_timeout"]

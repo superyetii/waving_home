@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cj637htcxifnd"]
+
+[ext_resource type="PackedScene" uid="uid://dx4enxj3lv0o8" path="res://scenes/cars/locomotive.tscn" id="1_wkjc4"]
+[ext_resource type="Script" path="res://scenes/temp_team.gd" id="1_y5bj3"]
+[ext_resource type="PackedScene" uid="uid://crshw3rsjq81n" path="res://scenes/cars/gustav.tscn" id="2_axxpo"]
+[ext_resource type="PackedScene" uid="uid://15mclm0vw0ka" path="res://scenes/player.tscn" id="3_qdruv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdwrv"]
+size = Vector2(2020, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7aha"]
+size = Vector2(20, 107)
+
+[node name="temp_team" type="Node2D"]
+script = ExtResource("1_y5bj3")
+
+[node name="gustav" parent="." instance=ExtResource("2_axxpo")]
+position = Vector2(640, 51)
+
+[node name="locomotive" parent="." instance=ExtResource("1_wkjc4")]
+unique_name_in_owner = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(293, 7)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(621, -2)
+shape = SubResource("RectangleShape2D_fdwrv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-370, -60)
+shape = SubResource("RectangleShape2D_g7aha")
+
+[node name="player" parent="." instance=ExtResource("3_qdruv")]
+unique_name_in_owner = true
+position = Vector2(92, -89)

@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://cgkvlw57bwh16"]
+
+[ext_resource type="PackedScene" uid="uid://dx4enxj3lv0o8" path="res://scenes/cars/locomotive.tscn" id="1_1f64i"]
+[ext_resource type="Script" path="res://scenes/makeateam.gd" id="1_p7kuq"]
+[ext_resource type="PackedScene" uid="uid://15mclm0vw0ka" path="res://scenes/player.tscn" id="2_uci0n"]
+[ext_resource type="PackedScene" uid="uid://cqs4vdiawbxq6" path="res://scenes/cars/missile_car.tscn" id="3_40pb5"]
+[ext_resource type="PackedScene" uid="uid://dlit5efmnbf6l" path="res://scenes/cars/gun_car.tscn" id="4_1r6oo"]
+[ext_resource type="PackedScene" uid="uid://c2ut2k7hb7gvn" path="res://scenes/cars/bomb_car.tscn" id="4_3288k"]
+[ext_resource type="PackedScene" uid="uid://b1o24daot61t4" path="res://scenes/cars/laser_car.tscn" id="5_gahge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa3b1"]
+size = Vector2(2020, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tiy4n"]
+size = Vector2(20, 107)
+
+[sub_resource type="Animation" id="Animation_dxy0k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("local_holder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4nckw"]
+resource_name = "command_booster"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("local_holder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-30, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p2n1l"]
+_data = {
+"RESET": SubResource("Animation_dxy0k"),
+"command_booster": SubResource("Animation_4nckw")
+}
+
+[node name="makeateam" type="Node2D"]
+script = ExtResource("1_p7kuq")
+
+[node name="local_holder" type="Sprite2D" parent="."]
+
+[node name="locomotive" parent="local_holder" instance=ExtResource("1_1f64i")]
+unique_name_in_owner = true
+
+[node name="missile_car" parent="local_holder" instance=ExtResource("3_40pb5")]
+position = Vector2(1080, 50)
+
+[node name="laser_car" parent="local_holder" instance=ExtResource("5_gahge")]
+position = Vector2(825, 50)
+
+[node name="bomb_car" parent="local_holder" instance=ExtResource("4_3288k")]
+position = Vector2(558, 50)
+
+[node name="gun_car" parent="local_holder" instance=ExtResource("4_1r6oo")]
+unique_name_in_owner = true
+position = Vector2(299, 50)
+
+[node name="player" parent="local_holder" instance=ExtResource("2_uci0n")]
+unique_name_in_owner = true
+position = Vector2(88, -76)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="local_holder"]
+position = Vector2(293, 7)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="local_holder/CharacterBody2D"]
+position = Vector2(621, -2)
+shape = SubResource("RectangleShape2D_qa3b1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="local_holder/CharacterBody2D"]
+position = Vector2(-370, -60)
+shape = SubResource("RectangleShape2D_tiy4n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_p2n1l")
+}

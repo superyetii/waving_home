@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://8acyiu2uec4r"]
+
+[ext_resource type="Texture2D" uid="uid://uontcfrd16a0" path="res://assets/sprites/new/train/locomotive/wheel.png" id="1_2qpdb"]
+[ext_resource type="Texture2D" uid="uid://c1dl4f4eaf4q" path="res://assets/sprites/new/train/cannon/body.png" id="1_4eg6w"]
+[ext_resource type="Texture2D" uid="uid://bf5wi2htayebo" path="res://assets/sprites/new/player/body.png" id="1_mhmgo"]
+[ext_resource type="Texture2D" uid="uid://cr806l32k6imx" path="res://assets/sprites/new/train/cannon/gun_mount.png" id="2_aopav"]
+[ext_resource type="Texture2D" uid="uid://b5uxsadu5ycyj" path="res://assets/sprites/new/train/cannon/gun.png" id="3_dlkuv"]
+[ext_resource type="Texture2D" uid="uid://jc1ktnymu44h" path="res://assets/sprites/new/train/cannon/eye.png" id="3_xmgw1"]
+[ext_resource type="Texture2D" uid="uid://1g7pu2r3xtap" path="res://assets/sprites/new/train/cannon/pupil.png" id="4_w80g3"]
+[ext_resource type="Texture2D" uid="uid://crp20vi1fdklm" path="res://assets/sprites/new/train/cannon/hatch.png" id="7_4xsmt"]
+
+[node name="player_cannon" type="Node2D"]
+
+[node name="cannon_car" type="Sprite2D" parent="."]
+
+[node name="character" type="Sprite2D" parent="cannon_car"]
+position = Vector2(-50, -103)
+texture = ExtResource("1_mhmgo")
+
+[node name="wheels" type="Sprite2D" parent="cannon_car"]
+
+[node name="wheel1" type="Sprite2D" parent="cannon_car/wheels"]
+position = Vector2(-79, 63)
+texture = ExtResource("1_2qpdb")
+
+[node name="wheel2" type="Sprite2D" parent="cannon_car/wheels"]
+position = Vector2(0, 63)
+texture = ExtResource("1_2qpdb")
+
+[node name="wheel3" type="Sprite2D" parent="cannon_car/wheels"]
+position = Vector2(75, 63)
+texture = ExtResource("1_2qpdb")
+
+[node name="Sprite2D" type="Sprite2D" parent="cannon_car"]
+
+[node name="cannon_mount" type="Sprite2D" parent="cannon_car"]
+position = Vector2(58, -78)
+texture = ExtResource("2_aopav")
+
+[node name="cannon_pivot" type="Sprite2D" parent="cannon_car/cannon_mount"]
+
+[node name="cannon" type="Sprite2D" parent="cannon_car/cannon_mount/cannon_pivot"]
+position = Vector2(153, 0)
+texture = ExtResource("3_dlkuv")
+
+[node name="eye" type="Sprite2D" parent="cannon_car/cannon_mount"]
+position = Vector2(-2, 0)
+texture = ExtResource("3_xmgw1")
+
+[node name="pupil_pivot" type="Sprite2D" parent="cannon_car/cannon_mount/eye"]
+
+[node name="pupil" type="Sprite2D" parent="cannon_car/cannon_mount/eye/pupil_pivot"]
+position = Vector2(8, 0)
+texture = ExtResource("4_w80g3")
+
+[node name="body" type="Sprite2D" parent="cannon_car"]
+texture = ExtResource("1_4eg6w")
+
+[node name="hatch" type="Sprite2D" parent="cannon_car"]
+position = Vector2(-50, -45)
+texture = ExtResource("7_4xsmt")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="cannon_car/hatch"]
+position = Vector2(0, -58)
+remote_path = NodePath("../../character")

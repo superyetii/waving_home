@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdhot18cqa3j4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cca15"]
+size = Vector2(782.875, 510.375)
+
+[node name="mobspawn_area" type="Area2D"]
+
+[node name="area2" type="CollisionShape2D" parent="." groups=["spawn_area"]]
+shape = SubResource("RectangleShape2D_cca15")

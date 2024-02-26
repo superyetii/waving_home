@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy2ffpl8b2h43"]
+
+[ext_resource type="Script" path="res://scenes/utility/subtarget_area.gd" id="1_1t2k2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_15ekr"]
+radius = 30.0666
+
+[node name="subtarget_area" type="Area2D"]
+script = ExtResource("1_1t2k2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["subtarget"]]
+shape = SubResource("CircleShape2D_15ekr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

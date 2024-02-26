@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0m7hmltilf1r"]
+
+[ext_resource type="Script" path="res://scenes/utility/mob_spawner.gd" id="1_8crhk"]
+
+[node name="MobSpawner" type="Node2D"]
+script = ExtResource("1_8crhk")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

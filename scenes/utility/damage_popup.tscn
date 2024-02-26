@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ktb8pxhlq4xh"]
+
+[ext_resource type="Script" path="res://scenes/utility/damage_popup.gd" id="1_a0gss"]
+[ext_resource type="PackedScene" uid="uid://dr2ho3uf3tfhk" path="res://scenes/utility/damage_marker.tscn" id="2_irm6p"]
+
+[node name="damage_popup" type="Marker2D"]
+script = ExtResource("1_a0gss")
+damage_node = ExtResource("2_irm6p")

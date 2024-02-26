@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://bbbojobr20wxj"]
+
+[ext_resource type="Script" path="res://scenes/mobs/regular/mata.gd" id="1_w2ljc"]
+[ext_resource type="Texture2D" uid="uid://b7irdxipkj0wq" path="res://assets/sprites/new/mobs/regular/mata/body.png" id="2_w7u6h"]
+[ext_resource type="Texture2D" uid="uid://djksayv2i61cb" path="res://assets/sprites/new/mobs/regular/mata/eye.png" id="3_n70r2"]
+[ext_resource type="Texture2D" uid="uid://dlppetagdkauo" path="res://assets/sprites/new/mobs/regular/mata/pupil.png" id="4_5mbgq"]
+[ext_resource type="PackedScene" uid="uid://br4mt34x65kfu" path="res://scenes/utility/hurtbox.tscn" id="5_8ke8h"]
+[ext_resource type="PackedScene" uid="uid://c2xbj0kjxroh4" path="res://scenes/utility/hitbox.tscn" id="6_kj1qj"]
+[ext_resource type="PackedScene" uid="uid://ktb8pxhlq4xh" path="res://scenes/utility/damage_popup.tscn" id="7_b8g4v"]
+[ext_resource type="Texture2D" uid="uid://b3ctucbvli5c6" path="res://assets/sprites/new/mobs/regular/mata/damage.png" id="8_jfngw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8c7hf"]
+radius = 39.1152
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8b4tx"]
+radius = 41.5933
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ju42x"]
+radius = 35.1283
+
+[node name="mata" type="CharacterBody2D"]
+collision_layer = 5
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_w2ljc")
+
+[node name="body" type="Sprite2D" parent="."]
+texture = ExtResource("2_w7u6h")
+
+[node name="eyes" type="Sprite2D" parent="body"]
+position = Vector2(-21, 0)
+texture = ExtResource("3_n70r2")
+
+[node name="eye_pupil" type="Sprite2D" parent="body/eyes"]
+position = Vector2(-5, 0)
+texture = ExtResource("4_5mbgq")
+
+[node name="Hurtbox" parent="." instance=ExtResource("5_8ke8h")]
+collision_layer = 4
+collision_mask = 4
+hurtboxType = 1
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_8c7hf")
+
+[node name="Hitbox" parent="." instance=ExtResource("6_kj1qj")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_8b4tx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ju42x")
+
+[node name="damage_popup" parent="." instance=ExtResource("7_b8g4v")]
+unique_name_in_owner = true
+position = Vector2(0, -42)
+
+[node name="blink" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("8_jfngw")
+
+[node name="blinkTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
+one_shot = true
+
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
+[connection signal="timeout" from="blinkTimer" to="." method="_on_blink_timer_timeout"]
+
+[editable path="Hurtbox"]
+[editable path="Hitbox"]

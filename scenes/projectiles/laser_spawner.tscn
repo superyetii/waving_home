@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2meme8jr60tt"]
+
+[ext_resource type="Script" path="res://scenes/projectiles/laser_spawner.gd" id="1_ctnup"]
+
+[node name="laser_spawner" type="Node2D"]
+script = ExtResource("1_ctnup")
+
+[node name="laserTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 1.5
+
+[node name="laserInitialDelayTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="laserAttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.075
+
+[node name="laserChargeTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.4
+one_shot = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(0, -5000)
+collision_mask = 4
+
+[connection signal="timeout" from="laserTimer" to="." method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="laserInitialDelayTimer" to="." method="_on_laser_initial_delay_timer_timeout"]
+[connection signal="timeout" from="laserAttackTimer" to="." method="_on_laser_attack_timer_timeout"]
+[connection signal="timeout" from="laserChargeTimer" to="." method="_on_laser_charge_timer_timeout"]

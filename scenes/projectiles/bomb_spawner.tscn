@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmbfd1fh1582p"]
+
+[ext_resource type="Script" path="res://scenes/projectiles/bomb_spawner.gd" id="1_2f7rf"]
+
+[node name="bomb_spawner" type="Node2D"]
+script = ExtResource("1_2f7rf")
+
+[node name="bombTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 1.5
+
+[node name="bombInitialDelayTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="bombAttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.075
+
+[connection signal="timeout" from="bombTimer" to="." method="_on_bomb_timer_timeout"]
+[connection signal="timeout" from="bombInitialDelayTimer" to="." method="_on_bomb_initial_delay_timer_timeout"]
+[connection signal="timeout" from="bombAttackTimer" to="." method="_on_bomb_attack_timer_timeout"]

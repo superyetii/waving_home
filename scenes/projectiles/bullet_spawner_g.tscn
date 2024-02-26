@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdw8t50uo8l14"]
+
+[ext_resource type="Script" path="res://scenes/projectiles/bullet_spawner_g.gd" id="1_71gq5"]
+
+[node name="bullet_spawner_g" type="Node2D"]
+script = ExtResource("1_71gq5")
+
+[node name="bulletTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 1.5
+
+[node name="bulletInitialDelayTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="bulletAttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.075
+
+[connection signal="timeout" from="bulletTimer" to="." method="_on_bullet_timer_timeout"]
+[connection signal="timeout" from="bulletInitialDelayTimer" to="." method="_on_bullet_initial_delay_timer_timeout"]
+[connection signal="timeout" from="bulletAttackTimer" to="." method="_on_bullet_attack_timer_timeout"]

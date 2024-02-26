@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://caqru48gw7y0q"]
+
+[ext_resource type="Script" path="res://scenes/projectiles/missile_spawner.gd" id="1_vxnig"]
+
+[node name="missile_spawner" type="Node2D"]
+script = ExtResource("1_vxnig")
+
+[node name="missileTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 1.5
+
+[node name="missileInitialDelayTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="missileAttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.075
+
+[connection signal="timeout" from="missileTimer" to="." method="_on_missile_timer_timeout"]
+[connection signal="timeout" from="missileInitialDelayTimer" to="." method="_on_missile_initial_delay_timer_timeout"]
+[connection signal="timeout" from="missileAttackTimer" to="." method="_on_missile_attack_timer_timeout"]

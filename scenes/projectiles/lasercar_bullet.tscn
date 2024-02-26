@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx57emyy06b6l"]
+
+[ext_resource type="Script" path="res://scenes/projectiles/lasercar_bullet.gd" id="1_spoca"]
+[ext_resource type="Texture2D" uid="uid://cc4hlvn0o3oio" path="res://assets/sprites/new/train/laser_car/laser.png" id="2_xraib"]
+[ext_resource type="Texture2D" uid="uid://b6tgl6wj1hr05" path="res://assets/sprites/train/laser_car/laser_charge.png" id="3_kbu5a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5quc"]
+size = Vector2(7.07107, 48.7904)
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_0kyil"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aia62"]
+lifetime_randomness = 0.4
+particle_flag_disable_z = true
+directional_velocity_min = -120.0
+directional_velocity_max = 120.0
+directional_velocity_curve = SubResource("CurveXYZTexture_0kyil")
+gravity = Vector3(0, 2000, 0)
+scale_min = 0.5
+scale_max = 1.5
+
+[node name="lasercar_bullet" type="Area2D" groups=["attack"]]
+top_level = true
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_spoca")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_xraib")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.25, 1.25)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_g5quc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="sound_effect" type="AudioStreamPlayer" parent="."]
+
+[node name="particleHolder" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="laser particle" type="GPUParticles2D" parent="particleHolder"]
+unique_name_in_owner = true
+emitting = false
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_aia62")
+texture = ExtResource("3_kbu5a")
+lifetime = 0.3
+one_shot = true
+randomness = 1.0
+
+[node name="particleTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="particleTimer" to="." method="_on_particle_timer_timeout"]

@@ -1,0 +1,206 @@
+[gd_scene load_steps=19 format=3 uid="uid://crshw3rsjq81n"]
+
+[ext_resource type="Texture2D" uid="uid://crqa7cs28ksxn" path="res://assets/sprites/new/train/gustav/body.png" id="1_lld3p"]
+[ext_resource type="Texture2D" uid="uid://cma8su1yfweju" path="res://assets/sprites/new/train/gustav/cannon_body.png" id="2_uvd3t"]
+[ext_resource type="Texture2D" uid="uid://uontcfrd16a0" path="res://assets/sprites/new/train/locomotive/wheel.png" id="2_yr4j3"]
+[ext_resource type="Texture2D" uid="uid://bh5lgqa4lympc" path="res://assets/sprites/new/train/gun_car/gun_mount.png" id="3_j0n0m"]
+[ext_resource type="Texture2D" uid="uid://ct76qk8aimm5s" path="res://assets/sprites/new/train/gustav/cannon_mount.png" id="3_q2xba"]
+[ext_resource type="Texture2D" uid="uid://8gsor0hcw54v" path="res://assets/sprites/new/train/gustav/cannon.png" id="4_5ober"]
+[ext_resource type="Texture2D" uid="uid://ctx2xwue6g7sq" path="res://assets/sprites/new/train/gustav/eye.png" id="4_8pseh"]
+[ext_resource type="Texture2D" uid="uid://dhgfsu0binib5" path="res://assets/sprites/new/train/gun_car/gun.png" id="4_j2ix0"]
+[ext_resource type="Texture2D" uid="uid://dw4p68qs6nu0a" path="res://assets/sprites/new/train/gustav/pupil.png" id="5_fmw12"]
+[ext_resource type="PackedScene" uid="uid://ckslml5b1wqfc" path="res://scenes/projectiles/bullet_spawner.tscn" id="5_ioe61"]
+[ext_resource type="Texture2D" uid="uid://belhknu1h541b" path="res://assets/sprites/new/train/gustav/gun_body2.png" id="6_auwld"]
+[ext_resource type="Texture2D" uid="uid://bx1smci6ro1pf" path="res://assets/sprites/new/train/gustav/gun_body3.png" id="7_3wqsu"]
+[ext_resource type="Texture2D" uid="uid://ty2yqg5isaif" path="res://assets/sprites/new/train/gustav/cannon_gear.png" id="7_f45a3"]
+[ext_resource type="Texture2D" uid="uid://beafgacpc26bb" path="res://assets/sprites/new/train/gustav/loader_body.png" id="8_ku2j8"]
+[ext_resource type="Texture2D" uid="uid://dab2o5hvxj00f" path="res://assets/sprites/new/train/gustav/loader_gear.png" id="8_yrlec"]
+[ext_resource type="Texture2D" uid="uid://2nr53oqeiaqw" path="res://assets/sprites/new/train/gustav/loader_stick.png" id="10_q8wyx"]
+[ext_resource type="Texture2D" uid="uid://gf6jiv4jc5uh" path="res://assets/sprites/new/train/covershield/shield.png" id="16_wrl1c"]
+[ext_resource type="Texture2D" uid="uid://cfxao52suovdg" path="res://assets/sprites/new/train/covershield/warning_sign.png" id="17_heflw"]
+
+[node name="gustav" type="Node2D"]
+
+[node name="body" type="Sprite2D" parent="."]
+texture = ExtResource("1_lld3p")
+
+[node name="wheels" type="Sprite2D" parent="body"]
+
+[node name="wheel1" type="Sprite2D" parent="body/wheels"]
+position = Vector2(-427.5, 63)
+texture = ExtResource("2_yr4j3")
+
+[node name="wheel2" type="Sprite2D" parent="body/wheels"]
+position = Vector2(-332.5, 63)
+texture = ExtResource("2_yr4j3")
+
+[node name="wheel3" type="Sprite2D" parent="body/wheels"]
+position = Vector2(-254.5, 63)
+texture = ExtResource("2_yr4j3")
+
+[node name="wheel4" type="Sprite2D" parent="body/wheels"]
+position = Vector2(-177.5, 63)
+texture = ExtResource("2_yr4j3")
+
+[node name="wheel5" type="Sprite2D" parent="body/wheels"]
+position = Vector2(-37.5, 63)
+texture = ExtResource("2_yr4j3")
+
+[node name="wheel6" type="Sprite2D" parent="body/wheels"]
+position = Vector2(39, 63)
+texture = ExtResource("2_yr4j3")
+
+[node name="wheel7" type="Sprite2D" parent="body/wheels"]
+position = Vector2(117, 63)
+texture = ExtResource("2_yr4j3")
+
+[node name="wheel8" type="Sprite2D" parent="body/wheels"]
+position = Vector2(224, 63)
+texture = ExtResource("2_yr4j3")
+
+[node name="wheel9" type="Sprite2D" parent="body/wheels"]
+position = Vector2(289, 63)
+texture = ExtResource("2_yr4j3")
+
+[node name="wheel10" type="Sprite2D" parent="body/wheels"]
+position = Vector2(362.5, 63)
+texture = ExtResource("2_yr4j3")
+
+[node name="wheel11" type="Sprite2D" parent="body/wheels"]
+position = Vector2(421, 63)
+texture = ExtResource("2_yr4j3")
+
+[node name="cannon_point" type="Sprite2D" parent="body"]
+
+[node name="cannon_body" type="Sprite2D" parent="body/cannon_point"]
+position = Vector2(64, -154)
+texture = ExtResource("2_uvd3t")
+
+[node name="cannon_mount" type="Sprite2D" parent="body/cannon_point/cannon_body"]
+position = Vector2(0, -190)
+texture = ExtResource("3_q2xba")
+
+[node name="cannon_pivot" type="Sprite2D" parent="body/cannon_point/cannon_body/cannon_mount"]
+position = Vector2(0, 41)
+
+[node name="cannon" type="Sprite2D" parent="body/cannon_point/cannon_body/cannon_mount/cannon_pivot"]
+position = Vector2(328, 0)
+texture = ExtResource("4_5ober")
+
+[node name="eye" type="Sprite2D" parent="body/cannon_point/cannon_body/cannon_mount"]
+texture = ExtResource("4_8pseh")
+
+[node name="pupil_pivot" type="Sprite2D" parent="body/cannon_point/cannon_body/cannon_mount/eye"]
+
+[node name="pupil" type="Sprite2D" parent="body/cannon_point/cannon_body/cannon_mount/eye/pupil_pivot"]
+position = Vector2(25, 0)
+texture = ExtResource("5_fmw12")
+
+[node name="aimer" type="Sprite2D" parent="body/cannon_point/cannon_body"]
+
+[node name="gear_pivot" type="Sprite2D" parent="body/cannon_point/cannon_body/aimer"]
+
+[node name="gear" type="Sprite2D" parent="body/cannon_point/cannon_body/aimer/gear_pivot"]
+
+[node name="gear" type="Sprite2D" parent="body/cannon_point/cannon_body"]
+texture = ExtResource("7_f45a3")
+
+[node name="reloader" type="Sprite2D" parent="body"]
+
+[node name="pusher" type="Sprite2D" parent="body/reloader"]
+position = Vector2(-262, -280)
+texture = ExtResource("10_q8wyx")
+
+[node name="gear" type="Sprite2D" parent="body/reloader"]
+position = Vector2(-367, -332)
+texture = ExtResource("8_yrlec")
+
+[node name="body" type="Sprite2D" parent="body/reloader"]
+position = Vector2(-367, -193)
+texture = ExtResource("8_ku2j8")
+
+[node name="gear_remote" type="RemoteTransform2D" parent="body/reloader/body"]
+position = Vector2(0, -139)
+remote_path = NodePath("../../gear")
+
+[node name="push_remote" type="RemoteTransform2D" parent="body/reloader/body"]
+position = Vector2(105, -87)
+remote_path = NodePath("../../pusher")
+
+[node name="guns" type="Sprite2D" parent="body"]
+
+[node name="gun1" type="Sprite2D" parent="body/guns"]
+
+[node name="gun_base" type="Sprite2D" parent="body/guns/gun1"]
+position = Vector2(416, -69)
+texture = ExtResource("3_j0n0m")
+
+[node name="loadGunTimer" type="Timer" parent="body/guns/gun1/gun_base"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="gun_rotation spot" type="Sprite2D" parent="body/guns/gun1/gun_base"]
+unique_name_in_owner = true
+position = Vector2(0, 11)
+rotation = 0.785398
+
+[node name="gun" type="Sprite2D" parent="body/guns/gun1/gun_base/gun_rotation spot"]
+position = Vector2(0, -49)
+texture = ExtResource("4_j2ix0")
+
+[node name="bullet_spawner" parent="body/guns/gun1/gun_base/gun_rotation spot/gun" instance=ExtResource("5_ioe61")]
+position = Vector2(0, -35)
+
+[node name="gun2" type="Sprite2D" parent="body/guns"]
+position = Vector2(347, -80)
+texture = ExtResource("6_auwld")
+
+[node name="gun_base" type="Sprite2D" parent="body/guns/gun2"]
+position = Vector2(0.5, -41)
+texture = ExtResource("3_j0n0m")
+
+[node name="loadGunTimer" type="Timer" parent="body/guns/gun2/gun_base"]
+one_shot = true
+
+[node name="gun_rotation spot" type="Sprite2D" parent="body/guns/gun2/gun_base"]
+position = Vector2(0, 11)
+rotation = 0.785398
+
+[node name="gun" type="Sprite2D" parent="body/guns/gun2/gun_base/gun_rotation spot"]
+position = Vector2(0, -49)
+texture = ExtResource("4_j2ix0")
+
+[node name="bullet_spawner" parent="body/guns/gun2/gun_base/gun_rotation spot/gun" instance=ExtResource("5_ioe61")]
+position = Vector2(0, -35)
+
+[node name="gun3" type="Sprite2D" parent="body/guns"]
+position = Vector2(278, -106)
+texture = ExtResource("7_3wqsu")
+
+[node name="gun_base" type="Sprite2D" parent="body/guns/gun3"]
+position = Vector2(0, -67)
+texture = ExtResource("3_j0n0m")
+
+[node name="loadGunTimer" type="Timer" parent="body/guns/gun3/gun_base"]
+one_shot = true
+
+[node name="gun_rotation spot" type="Sprite2D" parent="body/guns/gun3/gun_base"]
+position = Vector2(0, 11)
+rotation = 0.785398
+
+[node name="gun" type="Sprite2D" parent="body/guns/gun3/gun_base/gun_rotation spot"]
+position = Vector2(0, -49)
+texture = ExtResource("4_j2ix0")
+
+[node name="bullet_spawner" parent="body/guns/gun3/gun_base/gun_rotation spot/gun" instance=ExtResource("5_ioe61")]
+position = Vector2(0, -35)
+
+[node name="elevator" type="Sprite2D" parent="."]
+
+[node name="body" type="Sprite2D" parent="elevator"]
+position = Vector2(-199, -106)
+texture = ExtResource("16_wrl1c")
+
+[node name="warning_sign" type="Sprite2D" parent="elevator"]
+position = Vector2(-199, -162)
+texture = ExtResource("17_heflw")
