@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://xmh38rxpgbup"]
+[gd_scene load_steps=2 format=3 uid="uid://xmh38rxpgbup"]
+
+[ext_resource type="Texture2D" uid="uid://bw8selrsk1ffq" path="res://assets/sprites/new/background/floor.png" id="1_s5cpv"]
 
 [node name="UI_Interface" type="CanvasLayer"]
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="Control Area" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(0, 871)
+texture = ExtResource("1_s5cpv")
+centered = false

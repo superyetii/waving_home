@@ -669,7 +669,9 @@ shape = SubResource("RectangleShape2D_svyoa")
 
 [node name="Camera2D" type="Camera2D" parent="player_movement"]
 unique_name_in_owner = true
+visible = false
 position = Vector2(1, 0)
+enabled = false
 limit_left = -250
 limit_bottom = 250
 

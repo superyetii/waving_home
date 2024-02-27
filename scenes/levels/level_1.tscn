@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://pmfgovwdrfve"]
+[gd_scene load_steps=15 format=3 uid="uid://pmfgovwdrfve"]
 
-[ext_resource type="Script" path="res://scenes/level_1.gd" id="1_6ohlg"]
+[ext_resource type="Script" path="res://scenes/levels/level_1.gd" id="1_6ohlg"]
 [ext_resource type="PackedScene" uid="uid://c0m7hmltilf1r" path="res://scenes/utility/mob_spawner.tscn" id="3_0hic0"]
 [ext_resource type="PackedScene" uid="uid://bdhot18cqa3j4" path="res://scenes/utility/mobspawn_area.tscn" id="3_3ipwp"]
 [ext_resource type="PackedScene" uid="uid://bbbojobr20wxj" path="res://scenes/mobs/regular/mata.tscn" id="3_7x0ok"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dy2ffpl8b2h43" path="res://scenes/utility/subtarget_area.tscn" id="8_uka4e"]
 [ext_resource type="PackedScene" uid="uid://cgkvlw57bwh16" path="res://scenes/makeateam.tscn" id="9_v8eh1"]
 [ext_resource type="PackedScene" uid="uid://1sim54534cs2" path="res://scenes/custom_parallax.tscn" id="10_x1u5n"]
+[ext_resource type="PackedScene" uid="uid://xmh38rxpgbup" path="res://scenes/UI/ui_interface.tscn" id="11_lwb2k"]
+[ext_resource type="PackedScene" uid="uid://bde0iu3ma23e" path="res://scenes/levels/camera_2d.tscn" id="12_b1r1d"]
 
 [sub_resource type="Resource" id="Resource_5i4fr"]
 script = ExtResource("5_4viuj")
@@ -51,3 +53,7 @@ position = Vector2(85, -579)
 position = Vector2(1050.5, 240)
 scale = Vector2(2.50677, 1)
 texture = ExtResource("8_1ewcb")
+
+[node name="UI_Interface" parent="." instance=ExtResource("11_lwb2k")]
+
+[node name="Camera2D" parent="." instance=ExtResource("12_b1r1d")]
