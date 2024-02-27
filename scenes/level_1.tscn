@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dtbeu30b723di" path="res://scenes/utility/mob_detection_area.tscn" id="7_18ag5"]
 [ext_resource type="Texture2D" uid="uid://bw8selrsk1ffq" path="res://assets/sprites/new/background/floor.png" id="8_1ewcb"]
 [ext_resource type="PackedScene" uid="uid://dy2ffpl8b2h43" path="res://scenes/utility/subtarget_area.tscn" id="8_uka4e"]
-[ext_resource type="PackedScene" uid="uid://cj637htcxifnd" path="res://scenes/temp_team.tscn" id="10_b4hkn"]
+[ext_resource type="PackedScene" uid="uid://cgkvlw57bwh16" path="res://scenes/makeateam.tscn" id="9_v8eh1"]
 [ext_resource type="PackedScene" uid="uid://1sim54534cs2" path="res://scenes/custom_parallax.tscn" id="10_x1u5n"]
 
 [sub_resource type="Resource" id="Resource_5i4fr"]
@@ -45,9 +45,9 @@ position = Vector2(85, -579)
 
 [node name="MobDetectionArea" parent="." instance=ExtResource("7_18ag5")]
 
+[node name="makeateam" parent="." instance=ExtResource("9_v8eh1")]
+
 [node name="Floor" type="Sprite2D" parent="."]
 position = Vector2(1050.5, 240)
 scale = Vector2(2.50677, 1)
 texture = ExtResource("8_1ewcb")
-
-[node name="tempTeam" parent="." instance=ExtResource("10_b4hkn")]
