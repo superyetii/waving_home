@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://xmh38rxpgbup"]
+[gd_scene load_steps=3 format=3 uid="uid://xmh38rxpgbup"]
 
 [ext_resource type="Texture2D" uid="uid://bw8selrsk1ffq" path="res://assets/sprites/new/background/floor.png" id="1_s5cpv"]
+[ext_resource type="Texture2D" uid="uid://c56k3qpgke88k" path="res://assets/sprites/new/UI/Group 356.png" id="2_65fvk"]
 
 [node name="UI_Interface" type="CanvasLayer"]
 
@@ -9,4 +10,9 @@
 [node name="Control Area" type="Sprite2D" parent="CanvasGroup"]
 position = Vector2(0, 871)
 texture = ExtResource("1_s5cpv")
+centered = false
+
+[node name="health_bar" type="Sprite2D" parent="CanvasGroup"]
+scale = Vector2(0.405556, 0.405556)
+texture = ExtResource("2_65fvk")
 centered = false
