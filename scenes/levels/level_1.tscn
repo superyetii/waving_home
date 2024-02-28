@@ -18,7 +18,7 @@ script = ExtResource("5_4viuj")
 time_start = 5
 time_end = 14
 mob = ExtResource("3_7x0ok")
-mob_num = 30
+mob_num = 5
 mob_spawn_delay = 0
 
 [sub_resource type="Resource" id="Resource_p2ec6"]
@@ -26,21 +26,23 @@ script = ExtResource("5_4viuj")
 time_start = 17
 time_end = 22
 mob = ExtResource("3_7x0ok")
-mob_num = 30
+mob_num = 5
 mob_spawn_delay = 0
 
 [node name="level1" type="Node2D"]
 script = ExtResource("1_6ohlg")
 
 [node name="TempBack" type="Sprite2D" parent="."]
-position = Vector2(5494, -2018)
-scale = Vector2(7.87844, 7.87844)
+position = Vector2(1754.92, -666.563)
+scale = Vector2(3.00216, 2.64851)
 texture = ExtResource("2_lox1a")
 
-[node name="team" parent="." instance=ExtResource("2_bja6q")]
+[node name="team" parent="." node_paths=PackedStringArray("ui_interface") instance=ExtResource("2_bja6q")]
+unique_name_in_owner = true
+ui_interface = NodePath("../UI_Interface")
 
 [node name="mobspawn_area" parent="." instance=ExtResource("3_3ipwp")]
-position = Vector2(3348, -574)
+position = Vector2(4256, -1556)
 
 [node name="MobSpawner" parent="." instance=ExtResource("3_0hic0")]
 spawns = Array[ExtResource("5_4viuj")]([SubResource("Resource_5i4fr"), SubResource("Resource_p2ec6")])
@@ -51,8 +53,8 @@ position = Vector2(85, -579)
 [node name="MobDetectionArea" parent="." instance=ExtResource("7_18ag5")]
 
 [node name="Floor" type="Sprite2D" parent="."]
-position = Vector2(4473.5, 1540)
-scale = Vector2(9.0526, 6.30736)
+position = Vector2(1871, 929)
+scale = Vector2(3.60521, 3.66234)
 texture = ExtResource("9_gi7jk")
 
 [node name="Camera2D" parent="." instance=ExtResource("12_b1r1d")]

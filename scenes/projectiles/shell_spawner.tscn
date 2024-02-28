@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwnxwwjpsrblo"]
+
+[ext_resource type="Script" path="res://scenes/projectiles/shell_spawner.gd" id="1_l33sx"]
+
+[node name="shell_spawner" type="Node2D"]
+script = ExtResource("1_l33sx")

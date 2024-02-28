@@ -18,10 +18,4 @@ script = ExtResource("1_5c4lo")
 
 [node name="gun_car3" parent="." instance=ExtResource("2_2evbn")]
 
-[node name="gun_car4" parent="." node_paths=PackedStringArray("defaultGun", "gatlingGun1", "gatlingGun2", "gatlingGun3", "gatlingGun4", "gatlingGun5") instance=ExtResource("2_2evbn")]
-defaultGun = NodePath("../gun_car3/Skeleton2D/body/gun_base/gun_rotation spot/gun/bullet_spawner")
-gatlingGun1 = NodePath("../gun_car3/gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun1/bullet_spawner_g")
-gatlingGun2 = NodePath("../gun_car3/gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun2/bullet_spawner_g")
-gatlingGun3 = NodePath("../gun_car3/gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun3/bullet_spawner_g")
-gatlingGun4 = NodePath("../gun_car3/gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun4/bullet_spawner_g")
-gatlingGun5 = NodePath("../gun_car3/gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun5/bullet_spawner_g")
+[node name="gun_car4" parent="." instance=ExtResource("2_2evbn")]

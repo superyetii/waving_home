@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://6w33rxsb8hvh"]
+[gd_scene load_steps=17 format=3 uid="uid://6w33rxsb8hvh"]
 
 [ext_resource type="Script" path="res://scenes/cars/gustav_mini.gd" id="1_80dsg"]
 [ext_resource type="Texture2D" uid="uid://hmscpj4h04px" path="res://assets/sprites/palette/train/gustav/car.png" id="1_kfk5s"]
@@ -6,9 +6,156 @@
 [ext_resource type="Texture2D" uid="uid://dobj2vb0gjeon" path="res://assets/sprites/palette/train/gustav/mount.png" id="3_7h0ma"]
 [ext_resource type="Texture2D" uid="uid://d033hh0hjvlfl" path="res://assets/sprites/palette/train/gustav/gun.png" id="4_3y2fc"]
 [ext_resource type="Texture2D" uid="uid://8sjx228s5q4j" path="res://assets/sprites/palette/train/gustav/eye.png" id="5_6fh7k"]
+[ext_resource type="PackedScene" uid="uid://bwnxwwjpsrblo" path="res://scenes/projectiles/shell_spawner.tscn" id="6_aanfw"]
 [ext_resource type="Texture2D" uid="uid://278sgqg2qebt" path="res://assets/sprites/palette/train/gustav/pupil.png" id="6_eobox"]
 [ext_resource type="Texture2D" uid="uid://ctoetp7kfggc6" path="res://assets/sprites/palette/train/gustav/gear.png" id="7_pirmd"]
 [ext_resource type="Texture2D" uid="uid://dh5cyfq1eqob0" path="res://assets/sprites/palette/train/locomotive/wheel.png" id="8_i14jq"]
+
+[sub_resource type="Animation" id="Animation_8meps"]
+resource_name = "recoil"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("holder/car/body/mount/rotation_pivot/cannon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(149, 0), Vector2(98, 0), Vector2(149, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wol6u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("holder/car/body/mount/rotation_pivot/cannon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(149, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eao5a"]
+_data = {
+"RESET": SubResource("Animation_wol6u"),
+"recoil": SubResource("Animation_8meps")
+}
+
+[sub_resource type="Animation" id="Animation_r3q2q"]
+resource_name = "run"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("holder/wheels:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-3, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("holder/wheels/wheel1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("holder/wheels/wheel2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("holder/wheels/wheel3:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_5y3rv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("holder/wheels:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("holder/wheels/wheel1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("holder/wheels/wheel2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("holder/wheels/wheel3:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h61gb"]
+_data = {
+"RESET": SubResource("Animation_5y3rv"),
+"run": SubResource("Animation_r3q2q")
+}
 
 [node name="gustav_mini" type="Node2D" groups=["train_car"]]
 script = ExtResource("1_80dsg")
@@ -35,6 +182,10 @@ position = Vector2(0, 35)
 position = Vector2(149, 0)
 texture = ExtResource("4_3y2fc")
 
+[node name="shell_spawner" parent="holder/car/body/mount/rotation_pivot/cannon" instance=ExtResource("6_aanfw")]
+unique_name_in_owner = true
+position = Vector2(149, 0)
+
 [node name="eye" type="Sprite2D" parent="holder/car/body/mount"]
 unique_name_in_owner = true
 texture = ExtResource("5_6fh7k")
@@ -60,3 +211,26 @@ texture = ExtResource("8_i14jq")
 [node name="wheel3" type="Sprite2D" parent="holder/wheels"]
 position = Vector2(82, 63)
 texture = ExtResource("8_i14jq")
+
+[node name="fireTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="coolTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="animation" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_eao5a")
+}
+
+[node name="mainPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_h61gb")
+}
+
+[connection signal="timeout" from="fireTimer" to="." method="_on_fire_timer_timeout"]
+[connection signal="timeout" from="coolTimer" to="." method="_on_cool_timer_timeout"]

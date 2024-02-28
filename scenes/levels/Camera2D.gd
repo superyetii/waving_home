@@ -24,13 +24,12 @@ func _process(delta):
 	
 #	print(zoom)
 
-func moveCamera():
-	if Input.is_action_pressed("camera_up"):
-		position.y -= cameraMovementSpeed
-	elif Input.is_action_pressed("camera_down"):
-		position.y += cameraMovementSpeed
-	elif Input.is_action_pressed("camera_left"):
-		position.x -= cameraMovementSpeed
-	elif Input.is_action_pressed("camera_right"):
-		position.x += cameraMovementSpeed
+#func moveCamera():
+#	if Input.is_action_pressed("camera_up"):
+#		position.y -= cameraMovementSpeed
+#	elif Input.is_action_pressed("camera_down"):
+#		position.y += cameraMovementSpeed
+#	elif Input.is_action_pressed("camera_left"):
+##	elif Input.is_action_pressed("camera_right"):
+#		position.x += cameraMovementSpeed
 	

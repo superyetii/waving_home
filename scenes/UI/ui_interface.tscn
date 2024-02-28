@@ -1,20 +1,40 @@
-[gd_scene load_steps=6 format=3 uid="uid://xmh38rxpgbup"]
+[gd_scene load_steps=15 format=3 uid="uid://xmh38rxpgbup"]
 
-[ext_resource type="Texture2D" uid="uid://d0j1hidaxod7" path="res://assets/sprites/palette/ui/angle.png" id="1_gto5r"]
-[ext_resource type="Texture2D" uid="uid://cabpovbw8tbry" path="res://assets/sprites/palette/ui/pointer.png" id="2_e7jfv"]
+[ext_resource type="Texture2D" uid="uid://d0j1hidaxod7" path="res://assets/sprites/palette/ui/angle/angle.png" id="1_gto5r"]
+[ext_resource type="Script" path="res://scenes/UI/ui_interface.gd" id="1_injnh"]
+[ext_resource type="Texture2D" uid="uid://cabpovbw8tbry" path="res://assets/sprites/palette/ui/angle/pointer.png" id="2_e7jfv"]
 [ext_resource type="Script" path="res://scenes/UI/angle_display.gd" id="2_xucpa"]
 [ext_resource type="FontFile" uid="uid://cw5i3soj2hrbj" path="res://assets/fonts/IrishGrover-Regular.ttf" id="4_f31p8"]
+[ext_resource type="Script" path="res://scenes/UI/power_gauge.gd" id="5_mpfgx"]
+[ext_resource type="Texture2D" uid="uid://dufxkdf6rqm2c" path="res://assets/sprites/palette/ui/power/1.png" id="5_ralsa"]
+[ext_resource type="Texture2D" uid="uid://vcjensr8rn3m" path="res://assets/sprites/palette/ui/power/3.png" id="7_tm5kx"]
+[ext_resource type="Texture2D" uid="uid://dvjbka1nkoigu" path="res://assets/sprites/palette/ui/power/4.png" id="8_5dj47"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_og02a"]
 font = ExtResource("4_f31p8")
 font_size = 47
 font_color = Color(0.129412, 0.0941176, 0.105882, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dyrov"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uombe"]
+bg_color = Color(0.803922, 0.372549, 0.164706, 0.611765)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjvrw"]
+bg_color = Color(0.94902, 0.670588, 0.215686, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v58o6"]
+font = ExtResource("4_f31p8")
+font_size = 32
+font_color = Color(0.980392, 0.960784, 0.847059, 1)
+
 [node name="UI_Interface" type="CanvasLayer"]
+script = ExtResource("1_injnh")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
 [node name="angle_display" type="Sprite2D" parent="CanvasGroup"]
+unique_name_in_owner = true
 position = Vector2(122.5, 957.5)
 texture = ExtResource("1_gto5r")
 script = ExtResource("2_xucpa")
@@ -36,3 +56,91 @@ text = "90"
 label_settings = SubResource("LabelSettings_og02a")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="power_gauge" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(613, 989)
+script = ExtResource("5_mpfgx")
+
+[node name="1" type="Sprite2D" parent="CanvasGroup/power_gauge"]
+texture = ExtResource("5_ralsa")
+
+[node name="prevPower" type="ProgressBar" parent="CanvasGroup/power_gauge"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(713, 60)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -356.5
+offset_top = -30.5
+offset_right = 356.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxEmpty_dyrov")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uombe")
+value = 80.0
+show_percentage = false
+
+[node name="powerBar" type="ProgressBar" parent="CanvasGroup/power_gauge"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(713, 60)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -356.5
+offset_top = -30.5
+offset_right = 356.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxEmpty_dyrov")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cjvrw")
+value = 60.0
+show_percentage = false
+
+[node name="3" type="Sprite2D" parent="CanvasGroup/power_gauge"]
+texture = ExtResource("7_tm5kx")
+
+[node name="4" type="Sprite2D" parent="CanvasGroup/power_gauge"]
+position = Vector2(0, -6)
+texture = ExtResource("8_5dj47")
+
+[node name="0" type="Label" parent="CanvasGroup/power_gauge"]
+offset_left = -375.0
+offset_top = -68.0
+offset_right = -335.0
+offset_bottom = -29.0
+text = "0"
+label_settings = SubResource("LabelSettings_v58o6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="50" type="Label" parent="CanvasGroup/power_gauge"]
+offset_left = -21.0
+offset_top = -68.0
+offset_right = 19.0
+offset_bottom = -29.0
+text = "50"
+label_settings = SubResource("LabelSettings_v58o6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="100" type="Label" parent="CanvasGroup/power_gauge"]
+offset_left = 331.0
+offset_top = -68.0
+offset_right = 377.0
+offset_bottom = -29.0
+text = "100"
+label_settings = SubResource("LabelSettings_v58o6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="fire" from="CanvasGroup/power_gauge" to="." method="_on_power_gauge_fire"]
