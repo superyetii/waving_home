@@ -29,5 +29,6 @@ autostart = true
 [node name="sound_effect" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("3_jkqgj")
+volume_db = -20.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
