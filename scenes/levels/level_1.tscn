@@ -1,15 +1,15 @@
 [gd_scene load_steps=15 format=3 uid="uid://pmfgovwdrfve"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_1.gd" id="1_6ohlg"]
+[ext_resource type="PackedScene" uid="uid://c3k6bdg57o305" path="res://scenes/team/team.tscn" id="2_bja6q"]
+[ext_resource type="Texture2D" uid="uid://b8ro5eyn2chat" path="res://assets/sprites/palette/bg/temp_back.png" id="2_lox1a"]
 [ext_resource type="PackedScene" uid="uid://c0m7hmltilf1r" path="res://scenes/utility/mob_spawner.tscn" id="3_0hic0"]
 [ext_resource type="PackedScene" uid="uid://bdhot18cqa3j4" path="res://scenes/utility/mobspawn_area.tscn" id="3_3ipwp"]
 [ext_resource type="PackedScene" uid="uid://bbbojobr20wxj" path="res://scenes/mobs/regular/mata.tscn" id="3_7x0ok"]
 [ext_resource type="Script" path="res://scenes/utility/spawn_info.gd" id="5_4viuj"]
 [ext_resource type="PackedScene" uid="uid://dtbeu30b723di" path="res://scenes/utility/mob_detection_area.tscn" id="7_18ag5"]
-[ext_resource type="Texture2D" uid="uid://bw8selrsk1ffq" path="res://assets/sprites/new/background/floor.png" id="8_1ewcb"]
 [ext_resource type="PackedScene" uid="uid://dy2ffpl8b2h43" path="res://scenes/utility/subtarget_area.tscn" id="8_uka4e"]
-[ext_resource type="PackedScene" uid="uid://cgkvlw57bwh16" path="res://scenes/makeateam.tscn" id="9_v8eh1"]
-[ext_resource type="PackedScene" uid="uid://1sim54534cs2" path="res://scenes/custom_parallax.tscn" id="10_x1u5n"]
+[ext_resource type="Texture2D" uid="uid://cnofnpftn7ydl" path="res://assets/sprites/palette/bg/floor.png" id="9_gi7jk"]
 [ext_resource type="PackedScene" uid="uid://xmh38rxpgbup" path="res://scenes/UI/ui_interface.tscn" id="11_lwb2k"]
 [ext_resource type="PackedScene" uid="uid://bde0iu3ma23e" path="res://scenes/levels/camera_2d.tscn" id="12_b1r1d"]
 
@@ -32,9 +32,12 @@ mob_spawn_delay = 0
 [node name="level1" type="Node2D"]
 script = ExtResource("1_6ohlg")
 
-[node name="custom_parallax" parent="." groups=["parallax"] instance=ExtResource("10_x1u5n")]
-position = Vector2(0, -713)
-scale = Vector2(1.6, 1.6)
+[node name="TempBack" type="Sprite2D" parent="."]
+position = Vector2(5494, -2018)
+scale = Vector2(7.87844, 7.87844)
+texture = ExtResource("2_lox1a")
+
+[node name="team" parent="." instance=ExtResource("2_bja6q")]
 
 [node name="mobspawn_area" parent="." instance=ExtResource("3_3ipwp")]
 position = Vector2(3348, -574)
@@ -47,13 +50,12 @@ position = Vector2(85, -579)
 
 [node name="MobDetectionArea" parent="." instance=ExtResource("7_18ag5")]
 
-[node name="makeateam" parent="." instance=ExtResource("9_v8eh1")]
-
 [node name="Floor" type="Sprite2D" parent="."]
-position = Vector2(1050.5, 240)
-scale = Vector2(2.50677, 1)
-texture = ExtResource("8_1ewcb")
-
-[node name="UI_Interface" parent="." instance=ExtResource("11_lwb2k")]
+position = Vector2(4473.5, 1540)
+scale = Vector2(9.0526, 6.30736)
+texture = ExtResource("9_gi7jk")
 
 [node name="Camera2D" parent="." instance=ExtResource("12_b1r1d")]
+position = Vector2(1668, -577)
+
+[node name="UI_Interface" parent="." instance=ExtResource("11_lwb2k")]

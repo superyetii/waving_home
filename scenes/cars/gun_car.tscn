@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dlit5efmnbf6l"]
+[gd_scene load_steps=59 format=3 uid="uid://dlit5efmnbf6l"]
 
 [ext_resource type="Script" path="res://scenes/cars/gun_car.gd" id="1_5hrr2"]
 [ext_resource type="Texture2D" uid="uid://c11mjpqga4ckj" path="res://assets/sprites/new/itim/leg.png" id="2_qa7go"]
@@ -14,13 +14,14 @@
 [ext_resource type="Texture2D" uid="uid://djktir7gjg6l8" path="res://assets/sprites/new/train/gun_car/gatling/platform.png" id="10_y0kbr"]
 [ext_resource type="Texture2D" uid="uid://phuju0x33154" path="res://assets/sprites/new/train/gun_car/gatling/wall.png" id="11_kkg17"]
 [ext_resource type="Texture2D" uid="uid://c4a4bco5q1r3n" path="res://assets/sprites/new/train/gun_car/gatling/timer.png" id="12_6td1w"]
-[ext_resource type="Texture2D" uid="uid://uontcfrd16a0" path="res://assets/sprites/new/train/locomotive/wheel.png" id="14_s55ex"]
-[ext_resource type="Texture2D" uid="uid://bef6umseeajdg" path="res://assets/sprites/new/train/gun_car/body.png" id="15_lngur"]
-[ext_resource type="Texture2D" uid="uid://bh5lgqa4lympc" path="res://assets/sprites/new/train/gun_car/gun_mount.png" id="17_fs5jc"]
+[ext_resource type="Texture2D" uid="uid://bc0sc8ocykp1p" path="res://assets/sprites/palette/train/gun_car/body.png" id="16_uuxfa"]
 [ext_resource type="Texture2D" uid="uid://gf6jiv4jc5uh" path="res://assets/sprites/new/train/covershield/shield.png" id="17_h2dps"]
+[ext_resource type="Texture2D" uid="uid://bsv4drvsk44i" path="res://assets/sprites/palette/train/gun_car/mount.png" id="17_wly74"]
+[ext_resource type="Texture2D" uid="uid://cgkabmxmucjus" path="res://assets/sprites/palette/train/gun_car/gun.png" id="18_64pkt"]
 [ext_resource type="PackedScene" uid="uid://ckslml5b1wqfc" path="res://scenes/projectiles/bullet_spawner.tscn" id="18_o8126"]
 [ext_resource type="Texture2D" uid="uid://cfxao52suovdg" path="res://assets/sprites/new/train/covershield/warning_sign.png" id="18_os0ri"]
 [ext_resource type="Texture2D" uid="uid://dhgfsu0binib5" path="res://assets/sprites/new/train/gun_car/gun.png" id="18_p8p5o"]
+[ext_resource type="Texture2D" uid="uid://dh5cyfq1eqob0" path="res://assets/sprites/palette/train/locomotive/wheel.png" id="21_2d6ej"]
 
 [sub_resource type="Animation" id="Animation_yeod2"]
 length = 0.001
@@ -1588,7 +1589,7 @@ _data = {
 "extend": SubResource("Animation_ci5ff")
 }
 
-[node name="gun_car" type="Node2D" node_paths=PackedStringArray("defaultGun", "gatlingGun1", "gatlingGun2", "gatlingGun3", "gatlingGun4", "gatlingGun5")]
+[node name="gun_car" type="Node2D" node_paths=PackedStringArray("defaultGun", "gatlingGun1", "gatlingGun2", "gatlingGun3", "gatlingGun4", "gatlingGun5") groups=["train_car"]]
 script = ExtResource("1_5hrr2")
 defaultGun = NodePath("Skeleton2D/body/gun_base/gun_rotation spot/gun/bullet_spawner")
 gatlingGun1 = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun1/bullet_spawner_g")
@@ -1598,6 +1599,7 @@ gatlingGun4 = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotati
 gatlingGun5 = NodePath("gatlinggun_base/gatling_body/gatling_gunmount/gun_rotation spot/gatling_gunbase/gun5/bullet_spawner_g")
 
 [node name="uling" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(15, 16)
 scale = Vector2(1.3, 1.3)
 
@@ -1793,11 +1795,11 @@ texture = ExtResource("12_6td1w")
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 
 [node name="body" type="Sprite2D" parent="Skeleton2D"]
-texture = ExtResource("15_lngur")
+texture = ExtResource("16_uuxfa")
 
 [node name="gun_base" type="Sprite2D" parent="Skeleton2D/body"]
 position = Vector2(33, 40)
-texture = ExtResource("17_fs5jc")
+texture = ExtResource("17_wly74")
 
 [node name="loadGunTimer" type="Timer" parent="Skeleton2D/body/gun_base"]
 unique_name_in_owner = true
@@ -1809,7 +1811,7 @@ position = Vector2(0, 11)
 
 [node name="gun" type="Sprite2D" parent="Skeleton2D/body/gun_base/gun_rotation spot"]
 position = Vector2(0, -49)
-texture = ExtResource("18_p8p5o")
+texture = ExtResource("18_64pkt")
 
 [node name="bullet_spawner" parent="Skeleton2D/body/gun_base/gun_rotation spot/gun" node_paths=PackedStringArray("recoilanimationPlayer", "rotation_pivot") instance=ExtResource("18_o8126")]
 position = Vector2(0, -35)
@@ -1830,21 +1832,21 @@ position = Vector2(-12, -59)
 texture = ExtResource("18_os0ri")
 
 [node name="body2" type="Sprite2D" parent="Skeleton2D/body"]
-texture = ExtResource("15_lngur")
+texture = ExtResource("16_uuxfa")
 
 [node name="wheels" type="Sprite2D" parent="Skeleton2D/body/body2"]
 
 [node name="wheel1" type="Sprite2D" parent="Skeleton2D/body/body2/wheels"]
 position = Vector2(-70, 63)
-texture = ExtResource("14_s55ex")
+texture = ExtResource("21_2d6ej")
 
 [node name="wheel2" type="Sprite2D" parent="Skeleton2D/body/body2/wheels"]
 position = Vector2(3, 63)
-texture = ExtResource("14_s55ex")
+texture = ExtResource("21_2d6ej")
 
 [node name="wheel3" type="Sprite2D" parent="Skeleton2D/body/body2/wheels"]
 position = Vector2(82, 63)
-texture = ExtResource("14_s55ex")
+texture = ExtResource("21_2d6ej")
 
 [node name="weaponsAnimation" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -1918,6 +1920,7 @@ libraries = {
 }
 
 [node name="platform_pivot" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(65, -50)
 
 [node name="platform" type="Sprite2D" parent="platform_pivot"]

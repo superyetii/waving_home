@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_51jki"]
 [ext_resource type="Script" path="res://scenes/player_movement.gd" id="2_6qyl8"]
 [ext_resource type="PackedScene" uid="uid://73ra5ispkbds" path="res://scenes/bobo.tscn" id="2_71sf6"]
-[ext_resource type="Texture2D" uid="uid://c7l5k1l2d6qqn" path="res://assets/sprites/player/flagpoles/flagpole.png" id="2_hbbg3"]
 [ext_resource type="Texture2D" uid="uid://cn0qvakk7olws" path="res://assets/sprites/new/player/leg.png" id="3_p4xof"]
 [ext_resource type="Texture2D" uid="uid://bf5wi2htayebo" path="res://assets/sprites/new/player/body.png" id="4_6tefy"]
-[ext_resource type="Texture2D" uid="uid://drtdnrhr3urhm" path="res://assets/sprites/player/flags/flagwhite.png" id="4_jr5wm"]
 [ext_resource type="Texture2D" uid="uid://cq1lm8bus8jsq" path="res://assets/sprites/new/player/weapon/coal_shovel_big.png" id="5_l5ywq"]
 [ext_resource type="Texture2D" uid="uid://b4pjbwjjsreyo" path="res://assets/sprites/new/player/arm.png" id="6_mjyjs"]
+[ext_resource type="Texture2D" uid="uid://c7l5k1l2d6qqn" path="res://assets/sprites/old/player/flagpoles/flagpole.png" id="7_b0g6y"]
+[ext_resource type="Texture2D" uid="uid://drtdnrhr3urhm" path="res://assets/sprites/old/player/flags/flagwhite.png" id="8_u4w8l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svyoa"]
 size = Vector2(61, 120)
@@ -613,7 +613,7 @@ texture = ExtResource("5_l5ywq")
 [node name="flagpoleL" type="Sprite2D" parent="player_movement/bodybone/body/leftArmPivot"]
 visible = false
 position = Vector2(-166, 0)
-texture = ExtResource("2_hbbg3")
+texture = ExtResource("7_b0g6y")
 
 [node name="armL" type="Sprite2D" parent="player_movement/bodybone/body/leftArmPivot"]
 position = Vector2(-14, 0)
@@ -622,7 +622,7 @@ texture = ExtResource("6_mjyjs")
 [node name="flagL" type="Sprite2D" parent="player_movement/bodybone/body/leftArmPivot"]
 visible = false
 position = Vector2(-186, 53.5)
-texture = ExtResource("4_jr5wm")
+texture = ExtResource("8_u4w8l")
 
 [node name="rightArmPivot" type="Sprite2D" parent="player_movement/bodybone/body"]
 position = Vector2(8, 19)
@@ -632,7 +632,7 @@ rotation = 1.02974
 visible = false
 position = Vector2(167, 0)
 rotation = -3.14159
-texture = ExtResource("2_hbbg3")
+texture = ExtResource("7_b0g6y")
 
 [node name="armR" type="RemoteTransform2D" parent="player_movement/bodybone/body/rightArmPivot"]
 position = Vector2(14, 0)
@@ -642,7 +642,7 @@ remote_path = NodePath("../../../armR")
 [node name="flagR" type="Sprite2D" parent="player_movement/bodybone/body/rightArmPivot"]
 visible = false
 position = Vector2(186, 53.5)
-texture = ExtResource("4_jr5wm")
+texture = ExtResource("8_u4w8l")
 
 [node name="leftlegpivot" type="Sprite2D" parent="player_movement/bodybone"]
 position = Vector2(10, 26)

@@ -60,24 +60,24 @@ script = ExtResource("1_p7kuq")
 unique_name_in_owner = true
 
 [node name="missile_car" parent="local_holder" instance=ExtResource("3_40pb5")]
-position = Vector2(1080, 50)
+position = Vector2(1080, 0)
 
 [node name="laser_car" parent="local_holder" instance=ExtResource("5_gahge")]
-position = Vector2(825, 50)
+position = Vector2(825, 0)
 
 [node name="bomb_car" parent="local_holder" instance=ExtResource("4_3288k")]
-position = Vector2(558, 50)
+position = Vector2(558, 0)
 
 [node name="gun_car" parent="local_holder" instance=ExtResource("4_1r6oo")]
 unique_name_in_owner = true
-position = Vector2(299, 50)
+position = Vector2(299, 0)
 
 [node name="player" parent="local_holder" instance=ExtResource("2_uci0n")]
 unique_name_in_owner = true
-position = Vector2(88, -76)
+position = Vector2(88, -141)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="local_holder"]
-position = Vector2(293, 7)
+position = Vector2(293, -43)
 collision_layer = 16
 collision_mask = 16
 

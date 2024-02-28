@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/projectiles/lasercar_bullet.gd" id="1_spoca"]
 [ext_resource type="Texture2D" uid="uid://cc4hlvn0o3oio" path="res://assets/sprites/new/train/laser_car/laser.png" id="2_xraib"]
-[ext_resource type="Texture2D" uid="uid://b6tgl6wj1hr05" path="res://assets/sprites/train/laser_car/laser_charge.png" id="3_kbu5a"]
+[ext_resource type="Texture2D" uid="uid://b6tgl6wj1hr05" path="res://assets/sprites/old/train/laser_car/laser_charge.png" id="3_kbu5a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5quc"]
 size = Vector2(7.07107, 48.7904)

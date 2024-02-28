@@ -1,18 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://xmh38rxpgbup"]
+[gd_scene load_steps=6 format=3 uid="uid://xmh38rxpgbup"]
 
-[ext_resource type="Texture2D" uid="uid://bw8selrsk1ffq" path="res://assets/sprites/new/background/floor.png" id="1_s5cpv"]
-[ext_resource type="Texture2D" uid="uid://c56k3qpgke88k" path="res://assets/sprites/new/UI/Group 356.png" id="2_65fvk"]
+[ext_resource type="Texture2D" uid="uid://d0j1hidaxod7" path="res://assets/sprites/palette/ui/angle.png" id="1_gto5r"]
+[ext_resource type="Texture2D" uid="uid://cabpovbw8tbry" path="res://assets/sprites/palette/ui/pointer.png" id="2_e7jfv"]
+[ext_resource type="Script" path="res://scenes/UI/angle_display.gd" id="2_xucpa"]
+[ext_resource type="FontFile" uid="uid://cw5i3soj2hrbj" path="res://assets/fonts/IrishGrover-Regular.ttf" id="4_f31p8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_og02a"]
+font = ExtResource("4_f31p8")
+font_size = 47
+font_color = Color(0.129412, 0.0941176, 0.105882, 1)
 
 [node name="UI_Interface" type="CanvasLayer"]
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
-[node name="Control Area" type="Sprite2D" parent="CanvasGroup"]
-position = Vector2(0, 871)
-texture = ExtResource("1_s5cpv")
-centered = false
+[node name="angle_display" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(122.5, 957.5)
+texture = ExtResource("1_gto5r")
+script = ExtResource("2_xucpa")
 
-[node name="health_bar" type="Sprite2D" parent="CanvasGroup"]
-scale = Vector2(0.405556, 0.405556)
-texture = ExtResource("2_65fvk")
-centered = false
+[node name="pointer_pivot" type="Sprite2D" parent="CanvasGroup/angle_display"]
+unique_name_in_owner = true
+
+[node name="pointer" type="Sprite2D" parent="CanvasGroup/angle_display/pointer_pivot"]
+position = Vector2(43.5, 0)
+texture = ExtResource("2_e7jfv")
+
+[node name="Label" type="Label" parent="CanvasGroup/angle_display"]
+unique_name_in_owner = true
+offset_left = -23.5
+offset_top = 17.5
+offset_right = 26.5
+offset_bottom = 74.5
+text = "90"
+label_settings = SubResource("LabelSettings_og02a")
+horizontal_alignment = 1
+vertical_alignment = 1

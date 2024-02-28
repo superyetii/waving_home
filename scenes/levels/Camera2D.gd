@@ -13,13 +13,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	moveCamera()
+	#moveCamera()
+	pass
 
-func _input(event):
-	if event.is_action_pressed("camera_scroll_in"):
-		zoom *= zoomIn
-	elif event.is_action_pressed("camera_scroll_out"):
-		zoom *= zoomOut
+#func _input(event):
+#	if event.is_action_pressed("camera_scroll_in"):
+#		zoom *= zoomIn
+#	elif event.is_action_pressed("camera_scroll_out"):
+#		zoom *= zoomOut
+	
+#	print(zoom)
 
 func moveCamera():
 	if Input.is_action_pressed("camera_up"):

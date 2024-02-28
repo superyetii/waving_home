@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://scenes/levels/Camera2D.gd" id="1_kf7qo"]
 
 [node name="Camera2D" type="Camera2D"]
+zoom = Vector2(0.437, 0.437)
 script = ExtResource("1_kf7qo")

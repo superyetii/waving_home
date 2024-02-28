@@ -1,16 +1,16 @@
 [gd_scene load_steps=31 format=3 uid="uid://dx4enxj3lv0o8"]
 
 [ext_resource type="Script" path="res://scenes/cars/locomotive.gd" id="1_onwja"]
-[ext_resource type="Texture2D" uid="uid://dnbn1acvwwkv2" path="res://assets/sprites/new/train/locomotive/body_white.png" id="2_csgvs"]
-[ext_resource type="Texture2D" uid="uid://uontcfrd16a0" path="res://assets/sprites/new/train/locomotive/wheel.png" id="3_x6ash"]
-[ext_resource type="Texture2D" uid="uid://dj26hqfekecae" path="res://assets/sprites/new/train/locomotive/dash_white.png" id="4_7hra0"]
-[ext_resource type="Texture2D" uid="uid://5qe8h5ec2lnu" path="res://assets/sprites/new/train/locomotive/eye.png" id="5_t7lh6"]
-[ext_resource type="Texture2D" uid="uid://bosllu2i8snkp" path="res://assets/sprites/new/train/locomotive/engine1.png" id="6_qw2ds"]
-[ext_resource type="Texture2D" uid="uid://k376f5hxc1iv" path="res://assets/sprites/new/train/locomotive/engine2.png" id="7_v2igv"]
-[ext_resource type="Texture2D" uid="uid://dlfpc25cf2skb" path="res://assets/sprites/new/train/locomotive/engine3.png" id="8_wm6lj"]
-[ext_resource type="Texture2D" uid="uid://bof5j8ujier42" path="res://assets/sprites/new/train/locomotive/engine4.png" id="9_v6uf3"]
-[ext_resource type="Texture2D" uid="uid://cvj1y62t8ufj5" path="res://assets/sprites/new/train/locomotive/engine5.png" id="10_d14q3"]
-[ext_resource type="Texture2D" uid="uid://coxh67cnx1teb" path="res://assets/sprites/train/locomotive/smoke.png" id="11_50i4j"]
+[ext_resource type="Texture2D" uid="uid://c3vmhbyug3lkk" path="res://assets/sprites/palette/train/locomotive/body.png" id="2_iumg0"]
+[ext_resource type="Texture2D" uid="uid://dh5cyfq1eqob0" path="res://assets/sprites/palette/train/locomotive/wheel.png" id="3_kxbi3"]
+[ext_resource type="Texture2D" uid="uid://cxf2xm1i07f4m" path="res://assets/sprites/palette/train/locomotive/dash.png" id="4_gaekl"]
+[ext_resource type="Texture2D" uid="uid://r8dclka5tyuo" path="res://assets/sprites/palette/train/locomotive/eye.png" id="5_h7mi5"]
+[ext_resource type="Texture2D" uid="uid://csdgehe7e5nae" path="res://assets/sprites/palette/train/locomotive/engine1.png" id="6_inavu"]
+[ext_resource type="Texture2D" uid="uid://juoxrpj3ioqs" path="res://assets/sprites/palette/train/locomotive/engine2.png" id="7_ad8lt"]
+[ext_resource type="Texture2D" uid="uid://bvan1q06m3ovf" path="res://assets/sprites/palette/train/locomotive/engine3.png" id="8_8es8q"]
+[ext_resource type="Texture2D" uid="uid://45b5h3uwhs2g" path="res://assets/sprites/palette/train/locomotive/engine4.png" id="9_6smue"]
+[ext_resource type="Texture2D" uid="uid://bw1idxicfsso5" path="res://assets/sprites/palette/train/locomotive/engine5.png" id="10_8b40u"]
+[ext_resource type="Texture2D" uid="uid://coxh67cnx1teb" path="res://assets/sprites/old/train/locomotive/smoke.png" id="11_adafq"]
 [ext_resource type="PackedScene" uid="uid://br4mt34x65kfu" path="res://scenes/utility/hurtbox.tscn" id="12_5gl3q"]
 [ext_resource type="Texture2D" uid="uid://phuju0x33154" path="res://assets/sprites/new/train/gun_car/gatling/wall.png" id="13_wa5c6"]
 
@@ -29,6 +29,121 @@ scale_max = 0.4
 scale_curve = SubResource("CurveTexture_w4njj")
 turbulence_enabled = true
 turbulence_noise_scale = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m0m7h"]
+radius = 50.3587
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yrexf"]
+radius = 59.1354
+
+[sub_resource type="Animation" id="Animation_h2peq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("platform:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 26)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(65, -50)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("platform:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ci5ff"]
+resource_name = "extend"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("platform:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 26), Vector2(0, -26), Vector2(0, -26), Vector2(0, -66.375)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(65, -50), Vector2(65, -50)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("platform:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 2.34583)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qtdfw"]
+_data = {
+"RESET": SubResource("Animation_h2peq"),
+"extend": SubResource("Animation_ci5ff")
+}
 
 [sub_resource type="Animation" id="Animation_e05a8"]
 length = 0.001
@@ -636,180 +751,98 @@ _data = {
 "command_rest": SubResource("Animation_mqm7l")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m0m7h"]
-radius = 50.3587
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_yrexf"]
-radius = 59.1354
-
-[sub_resource type="Animation" id="Animation_h2peq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("platform:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 26)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(65, -50)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("platform:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_ci5ff"]
-resource_name = "extend"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 1.5708]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("platform:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 26), Vector2(0, -26), Vector2(0, -26), Vector2(0, -66.375)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(65, -50), Vector2(65, -50)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("platform:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 2.34583)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qtdfw"]
-_data = {
-"RESET": SubResource("Animation_h2peq"),
-"extend": SubResource("Animation_ci5ff")
-}
-
 [node name="locomotive" type="Node2D"]
 script = ExtResource("1_onwja")
 
 [node name="body" type="Sprite2D" parent="."]
-texture = ExtResource("2_csgvs")
+position = Vector2(0, -50)
+texture = ExtResource("2_iumg0")
 
 [node name="wheels" type="Sprite2D" parent="body"]
 
 [node name="wheel1" type="Sprite2D" parent="body/wheels"]
 position = Vector2(-90, 113)
-texture = ExtResource("3_x6ash")
+texture = ExtResource("3_kxbi3")
 
 [node name="wheel2" type="Sprite2D" parent="body/wheels"]
 position = Vector2(-31, 113)
-texture = ExtResource("3_x6ash")
+texture = ExtResource("3_kxbi3")
 
 [node name="wheel3" type="Sprite2D" parent="body/wheels"]
 position = Vector2(34, 113)
-texture = ExtResource("3_x6ash")
+texture = ExtResource("3_kxbi3")
 
 [node name="wheel4" type="Sprite2D" parent="body/wheels"]
 position = Vector2(94, 113)
-texture = ExtResource("3_x6ash")
+texture = ExtResource("3_kxbi3")
 
 [node name="dash" type="Sprite2D" parent="body"]
 position = Vector2(-65, 22)
-texture = ExtResource("4_7hra0")
+texture = ExtResource("4_gaekl")
 
 [node name="eyes" type="Sprite2D" parent="body"]
 position = Vector2(-93, 27)
-texture = ExtResource("5_t7lh6")
+texture = ExtResource("5_h7mi5")
 
 [node name="engine1" type="Sprite2D" parent="body"]
 position = Vector2(63, 48)
-texture = ExtResource("6_qw2ds")
+texture = ExtResource("6_inavu")
 
 [node name="engine2" type="Sprite2D" parent="body"]
 position = Vector2(78, 57)
-texture = ExtResource("7_v2igv")
+texture = ExtResource("7_ad8lt")
 
 [node name="engine3" type="Sprite2D" parent="body"]
 position = Vector2(94, 47)
-texture = ExtResource("8_wm6lj")
+texture = ExtResource("8_8es8q")
 
 [node name="engine4" type="Sprite2D" parent="body"]
 position = Vector2(107, 51)
-texture = ExtResource("9_v6uf3")
+texture = ExtResource("9_6smue")
 
 [node name="engine5" type="Sprite2D" parent="body"]
 position = Vector2(117, 41)
-texture = ExtResource("10_d14q3")
+texture = ExtResource("10_8b40u")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="body"]
 position = Vector2(-40, -156)
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_7gg2d")
-texture = ExtResource("11_50i4j")
+texture = ExtResource("11_adafq")
 lifetime = 3.0
 randomness = 1.0
+
+[node name="targetbody" type="CharacterBody2D" parent="body" groups=["target"]]
+visible = false
+position = Vector2(5, 23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/targetbody"]
+shape = SubResource("CircleShape2D_m0m7h")
+one_way_collision_margin = 0.0
+
+[node name="Hurtbox" parent="body/targetbody" instance=ExtResource("12_5gl3q")]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="body/targetbody/Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_yrexf")
+
+[node name="platform_holder" type="Sprite2D" parent="body"]
+visible = false
+position = Vector2(49, 50)
+
+[node name="platform_pivot" type="Sprite2D" parent="body/platform_holder"]
+position = Vector2(65, -50)
+
+[node name="platform" type="Sprite2D" parent="body/platform_holder/platform_pivot"]
+position = Vector2(0, 26)
+texture = ExtResource("13_wa5c6")
+
+[node name="platformPlayer" type="AnimationPlayer" parent="body/platform_holder/platform_pivot"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_qtdfw")
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -825,39 +858,8 @@ libraries = {
 unique_name_in_owner = true
 one_shot = true
 
-[node name="targetbody" type="CharacterBody2D" parent="." groups=["target"]]
-visible = false
-position = Vector2(5, 23)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="targetbody"]
-shape = SubResource("CircleShape2D_m0m7h")
-one_way_collision_margin = 0.0
-
-[node name="Hurtbox" parent="targetbody" instance=ExtResource("12_5gl3q")]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" parent="targetbody/Hurtbox" index="0"]
-shape = SubResource("CircleShape2D_yrexf")
-
-[node name="platform_holder" type="Sprite2D" parent="."]
-position = Vector2(49, 50)
-
-[node name="platform_pivot" type="Sprite2D" parent="platform_holder"]
-position = Vector2(65, -50)
-
-[node name="platform" type="Sprite2D" parent="platform_holder/platform_pivot"]
-position = Vector2(0, 26)
-texture = ExtResource("13_wa5c6")
-
-[node name="platformPlayer" type="AnimationPlayer" parent="platform_holder/platform_pivot"]
-unique_name_in_owner = true
-libraries = {
-"": SubResource("AnimationLibrary_qtdfw")
-}
-
+[connection signal="hurt" from="body/targetbody/Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="animation_finished" from="Eyes Animation" to="." method="_on_eyes_animation_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="hurt" from="targetbody/Hurtbox" to="." method="_on_hurtbox_hurt"]
 
-[editable path="targetbody/Hurtbox"]
+[editable path="body/targetbody/Hurtbox"]

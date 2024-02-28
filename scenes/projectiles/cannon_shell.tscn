@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://y7mt7oyea345"]
+
+[ext_resource type="Script" path="res://scenes/projectiles/cannon_shell.gd" id="1_ruvue"]
+[ext_resource type="Texture2D" uid="uid://1gdh1w3hpqd6" path="res://assets/sprites/new/train/gun_car/bullet.png" id="2_j6w7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5quc"]
+size = Vector2(8.48528, 33.234)
+
+[node name="cannon_shell" type="Area2D" groups=["attack"]]
+top_level = true
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_ruvue")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_j6w7f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.249998, 0.249998)
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_g5quc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="sound_effect" type="AudioStreamPlayer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
