@@ -20,7 +20,7 @@ var bullet = preload("res://scenes/projectiles/guncar_bullet.tscn")
 #Bullet stats
 var bullet_ammo = 0
 var bullet_baseammo = 1
-var bullet_attackspeed = 0.075
+var bullet_attackspeed = 0.6
 var bullet_level = 1
 
 #State of the gun

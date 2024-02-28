@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://6w33rxsb8hvh"]
+[gd_scene load_steps=18 format=3 uid="uid://6w33rxsb8hvh"]
 
 [ext_resource type="Script" path="res://scenes/cars/gustav_mini.gd" id="1_80dsg"]
 [ext_resource type="Texture2D" uid="uid://hmscpj4h04px" path="res://assets/sprites/palette/train/gustav/car.png" id="1_kfk5s"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://278sgqg2qebt" path="res://assets/sprites/palette/train/gustav/pupil.png" id="6_eobox"]
 [ext_resource type="Texture2D" uid="uid://ctoetp7kfggc6" path="res://assets/sprites/palette/train/gustav/gear.png" id="7_pirmd"]
 [ext_resource type="Texture2D" uid="uid://dh5cyfq1eqob0" path="res://assets/sprites/palette/train/locomotive/wheel.png" id="8_i14jq"]
+[ext_resource type="AudioStream" uid="uid://cled3emxii486" path="res://assets/sounds/shot_4(cannon).wav" id="11_l3dye"]
 
 [sub_resource type="Animation" id="Animation_wol6u"]
 length = 0.001
@@ -231,6 +232,10 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_h61gb")
 }
+
+[node name="soundCannon" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_l3dye")
 
 [connection signal="timeout" from="fireTimer" to="." method="_on_fire_timer_timeout"]
 [connection signal="timeout" from="coolTimer" to="." method="_on_cool_timer_timeout"]

@@ -1,4 +1,5 @@
 extends Area2D
+@onready var soundEffect = %sound_effect
 
 #Base values, ignore
 var level = 1
@@ -18,7 +19,7 @@ func _ready():
 	rotation = angle.angle() + deg_to_rad(45)
 	match level:
 		1:
-			hp = 1
+			hp = 3
 			speed = 2000
 			damage = 5
 			knockback_amount = 100
@@ -30,6 +31,7 @@ func _physics_process(delta):
 	
 func mob_hit(charge = 1):
 	hp -= charge
+	soundEffect.play()
 	if hp <= 0:
 		queue_free()
 

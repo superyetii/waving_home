@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://qxja3mvc1uq6"]
+[gd_scene load_steps=5 format=3 uid="uid://qxja3mvc1uq6"]
 
 [ext_resource type="Script" path="res://scenes/projectiles/guncar_bullet.gd" id="1_fvy71"]
 [ext_resource type="Texture2D" uid="uid://1gdh1w3hpqd6" path="res://assets/sprites/new/train/gun_car/bullet.png" id="2_jtbxs"]
+[ext_resource type="AudioStream" uid="uid://o4nlrit1e8gu" path="res://assets/sounds/hit_5(gun).wav" id="3_jkqgj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5quc"]
 size = Vector2(8.48528, 33.234)
@@ -26,5 +27,7 @@ one_shot = true
 autostart = true
 
 [node name="sound_effect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_jkqgj")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

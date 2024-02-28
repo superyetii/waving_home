@@ -8,6 +8,7 @@ extends Node2D
 @onready var coolTimer = %coolTimer
 @onready var animationPlayer = %animation
 @onready var runAnimation = %mainPlayer
+@onready var soundCannon = %soundCannon
 var gunAngle = 0.0
 var gunPower = 0
 
@@ -39,6 +40,7 @@ func command_fire(angle, power):
 func _on_fire_timer_timeout(): #Shoot
 	shell_spawner.shoot(gunAngle, gunPower)
 	animationPlayer.play("recoil")
+	soundCannon.play()
 	coolTimer.start()
 
 
