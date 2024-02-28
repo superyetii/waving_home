@@ -22,14 +22,11 @@ func _ready():
 	rotation = angle.angle() + deg_to_rad(45)
 	match level:
 		1:
-			hp = 100
+			hp = 1
 			damage = 50
 			knockback_amount = 100
 			attack_size = 1.0
 			
-	print(velocity.x)
-	print(velocity.y)
-	
 func _physics_process(delta):
 	#position += (angle * speed * delta)
 	var horizontal_motion = velocity.x * delta

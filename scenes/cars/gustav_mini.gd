@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var cannon = %rotation_pivot
 @onready var shell_spawner = %shell_spawner
+@onready var gear = %gear
 @onready var eye = %eye
 @onready var fireTimer = %fireTimer
 @onready var coolTimer = %coolTimer
@@ -19,18 +20,25 @@ func _ready():
 func _process(delta):
 	cannon.rotation = lerp(cannon.rotation, deg_to_rad(gunAngle), 0.1)
 	eye.rotation = lerp(cannon.rotation, deg_to_rad(gunAngle), 0.1)
+	if abs(abs(cannon.rotation) - abs(deg_to_rad(gunAngle))) < 0.01:
+		pass
+	elif cannon.rotation > deg_to_rad(gunAngle):
+		gear.rotation -= .1
+	elif cannon.rotation < deg_to_rad(gunAngle):
+		gear.rotation += .1
+	else:
+		pass
 	
 func command_fire(angle, power):
 	gunAngle = angle
 	gunPower = power
-	shell_spawner.shoot(gunAngle, gunPower)
-	animationPlayer.play("recoil")
-	#fireTimer.start()
-	print(angle)
-	print(power)
+	#shell_spawner.shoot(gunAngle, gunPower)
+	#animationPlayer.play("recoil")
+	fireTimer.start()
 	
 func _on_fire_timer_timeout(): #Shoot
-	#shell_spawner.shoot(gunAngle, gunPower)
+	shell_spawner.shoot(gunAngle, gunPower)
+	animationPlayer.play("recoil")
 	coolTimer.start()
 
 

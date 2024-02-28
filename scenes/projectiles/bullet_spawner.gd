@@ -20,7 +20,7 @@ var bullet = preload("res://scenes/projectiles/guncar_bullet.tscn")
 #Bullet stats
 var bullet_ammo = 0
 var bullet_baseammo = 1
-var bullet_attackspeed = 0.6
+var bullet_attackspeed = 0.075
 var bullet_level = 1
 
 #State of the gun
@@ -50,19 +50,26 @@ func _process(delta):
 	
 	
 func _on_bullet_timer_timeout(): #Loading ammunition?
-	bullet_ammo = bullet_baseammo
-	bulletAttackTimer.start()
+	#bullet_ammo = bullet_baseammo
+	#bulletAttackTimer.start()
+	if weapon_loaded:
+		get_random_target()
+		#bulletAttackTimer.start()
+	else:
+		pass
 	
 	
 func _on_bullet_attack_timer_timeout(): 
 	if weapon_loaded:
-		if bullet_ammo > 0:
-			get_random_target()
-			#rotation_pivot.rotation = angle.angle() + deg_to_rad(90)
-			if bullet_ammo > 0:
-				bulletAttackTimer.start()
-			else:
-				bulletAttackTimer.stop()
+		get_random_target()
+		bulletAttackTimer.start()
+#		if bullet_ammo > 0:
+#			get_random_target()
+#			#rotation_pivot.rotation = angle.angle() + deg_to_rad(90)
+#			if bullet_ammo > 0:
+#				bulletAttackTimer.start()
+#			else:
+#				bulletAttackTimer.stop()
 	else:
 		pass
 		

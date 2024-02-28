@@ -42,7 +42,7 @@ unique_name_in_owner = true
 ui_interface = NodePath("../UI_Interface")
 
 [node name="mobspawn_area" parent="." instance=ExtResource("3_3ipwp")]
-position = Vector2(4256, -1556)
+position = Vector2(3170, -569)
 
 [node name="MobSpawner" parent="." instance=ExtResource("3_0hic0")]
 spawns = Array[ExtResource("5_4viuj")]([SubResource("Resource_5i4fr"), SubResource("Resource_p2ec6")])
