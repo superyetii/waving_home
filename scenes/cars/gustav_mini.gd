@@ -40,7 +40,7 @@ func command_fire(angle, power):
 func _on_fire_timer_timeout(): #Shoot
 	shell_spawner.shoot(gunAngle, gunPower)
 	animationPlayer.play("recoil")
-	soundCannon.play()
+	#soundCannon.play()
 	coolTimer.start()
 
 

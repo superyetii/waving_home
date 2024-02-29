@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://xmh38rxpgbup"]
+[gd_scene load_steps=17 format=3 uid="uid://xmh38rxpgbup"]
 
 [ext_resource type="Texture2D" uid="uid://d0j1hidaxod7" path="res://assets/sprites/palette/ui/angle/angle.png" id="1_gto5r"]
 [ext_resource type="Script" path="res://scenes/UI/ui_interface.gd" id="1_injnh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dufxkdf6rqm2c" path="res://assets/sprites/palette/ui/power/1.png" id="5_ralsa"]
 [ext_resource type="Texture2D" uid="uid://vcjensr8rn3m" path="res://assets/sprites/palette/ui/power/3.png" id="7_tm5kx"]
 [ext_resource type="Texture2D" uid="uid://dvjbka1nkoigu" path="res://assets/sprites/palette/ui/power/4.png" id="8_5dj47"]
+[ext_resource type="AudioStream" uid="uid://d0c3n2jjjtyf6" path="res://assets/sounds/toggle.wav" id="10_svf4s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_og02a"]
 font = ExtResource("4_f31p8")
@@ -27,6 +28,13 @@ bg_color = Color(0.94902, 0.670588, 0.215686, 1)
 font = ExtResource("4_f31p8")
 font_size = 32
 font_color = Color(0.980392, 0.960784, 0.847059, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1etxu"]
+font = ExtResource("4_f31p8")
+font_size = 48
+font_color = Color(0.980392, 0.960784, 0.847059, 1)
+outline_size = 8
+outline_color = Color(0.129412, 0.0941176, 0.105882, 1)
 
 [node name="UI_Interface" type="CanvasLayer"]
 script = ExtResource("1_injnh")
@@ -165,4 +173,28 @@ label_settings = SubResource("LabelSettings_v58o6")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Wave Timer" type="Label" parent="CanvasGroup"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -139.5
+offset_right = 139.5
+offset_bottom = 58.0
+grow_horizontal = 2
+text = "4:49"
+label_settings = SubResource("LabelSettings_1etxu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sound_effect" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_svf4s")
+pitch_scale = 4.0
+
+[node name="sound" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
+
 [connection signal="fire" from="CanvasGroup/power_gauge" to="." method="_on_power_gauge_fire"]
+[connection signal="timeout" from="sound" to="CanvasGroup/angle_display" method="_on_sound_timeout"]

@@ -31,7 +31,7 @@ func _physics_process(delta):
 	
 func mob_hit(charge = 1):
 	hp -= charge
-	soundEffect.play()
+	#soundEffect.play()
 	if hp <= 0:
 		queue_free()
 

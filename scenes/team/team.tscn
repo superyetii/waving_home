@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3k6bdg57o305"]
+[gd_scene load_steps=6 format=3 uid="uid://c3k6bdg57o305"]
 
 [ext_resource type="Script" path="res://scenes/team/team.gd" id="1_5c4lo"]
 [ext_resource type="PackedScene" uid="uid://dx4enxj3lv0o8" path="res://scenes/cars/locomotive.tscn" id="1_k4pjn"]
 [ext_resource type="PackedScene" uid="uid://dlit5efmnbf6l" path="res://scenes/cars/gun_car.tscn" id="2_2evbn"]
 [ext_resource type="PackedScene" uid="uid://6w33rxsb8hvh" path="res://scenes/cars/gustav_mini.tscn" id="3_kkypj"]
+[ext_resource type="PackedScene" uid="uid://cldxam8hurqh2" path="res://scenes/cars/payload.tscn" id="5_ejil7"]
 
 [node name="team" type="Node2D"]
 script = ExtResource("1_5c4lo")
@@ -19,3 +20,5 @@ script = ExtResource("1_5c4lo")
 [node name="gun_car3" parent="." instance=ExtResource("2_2evbn")]
 
 [node name="gun_car4" parent="." instance=ExtResource("2_2evbn")]
+
+[node name="payload" parent="." instance=ExtResource("5_ejil7")]
