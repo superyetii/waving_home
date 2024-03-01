@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dx4enxj3lv0o8"]
+[gd_scene load_steps=38 format=3 uid="uid://dx4enxj3lv0o8"]
 
 [ext_resource type="Script" path="res://scenes/cars/locomotive.gd" id="1_onwja"]
 [ext_resource type="Texture2D" uid="uid://c3vmhbyug3lkk" path="res://assets/sprites/palette/train/locomotive/body.png" id="2_iumg0"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://coxh67cnx1teb" path="res://assets/sprites/old/train/locomotive/smoke.png" id="11_adafq"]
 [ext_resource type="PackedScene" uid="uid://br4mt34x65kfu" path="res://scenes/utility/hurtbox.tscn" id="12_5gl3q"]
 [ext_resource type="Texture2D" uid="uid://phuju0x33154" path="res://assets/sprites/new/train/gun_car/gatling/wall.png" id="13_wa5c6"]
+[ext_resource type="Texture2D" uid="uid://b5le12hwsk1o0" path="res://assets/sprites/palette/player/hotairballoon.png" id="14_usmlx"]
+[ext_resource type="PackedScene" uid="uid://cbbqt32vee7we" path="res://scenes/utility/rope.tscn" id="15_orpyb"]
 
 [sub_resource type="Curve" id="Curve_3im87"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -144,6 +146,9 @@ _data = {
 "RESET": SubResource("Animation_h2peq"),
 "extend": SubResource("Animation_ci5ff")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a72ux"]
+size = Vector2(42, 12)
 
 [sub_resource type="Animation" id="Animation_e05a8"]
 length = 0.001
@@ -751,6 +756,46 @@ _data = {
 "command_rest": SubResource("Animation_mqm7l")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g7auq"]
+
+[sub_resource type="Animation" id="Animation_t60nu"]
+resource_name = "move"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Hotairballoon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(275, -581), Vector2(193, -598.5), Vector2(275, -581)]
+}
+
+[sub_resource type="Animation" id="Animation_2ai2n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Hotairballoon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(193, -598.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xms8q"]
+_data = {
+"RESET": SubResource("Animation_2ai2n"),
+"move": SubResource("Animation_t60nu")
+}
+
 [node name="locomotive" type="Node2D"]
 script = ExtResource("1_onwja")
 
@@ -844,6 +889,12 @@ libraries = {
 "": SubResource("AnimationLibrary_qtdfw")
 }
 
+[node name="ropeHolder" type="StaticBody2D" parent="body"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/ropeHolder"]
+position = Vector2(86, -11)
+shape = SubResource("RectangleShape2D_a72ux")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_oo6cp")
@@ -857,6 +908,137 @@ libraries = {
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Hotairballoon" type="Sprite2D" parent="Player"]
+unique_name_in_owner = true
+position = Vector2(193, -598.5)
+texture = ExtResource("14_usmlx")
+
+[node name="balloonHook" type="StaticBody2D" parent="Player/Hotairballoon"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Hotairballoon/balloonHook"]
+position = Vector2(-107, 196.5)
+shape = SubResource("CircleShape2D_g7auq")
+
+[node name="Rope_Container" type="Node2D" parent="Player/Hotairballoon"]
+position = Vector2(-107, 206)
+
+[node name="PinJoint2D14" type="PinJoint2D" parent="Player/Hotairballoon/Rope_Container"]
+position = Vector2(0, 0.5)
+node_a = NodePath("../../balloonHook")
+node_b = NodePath("../rope")
+
+[node name="rope" parent="Player/Hotairballoon/Rope_Container" instance=ExtResource("15_orpyb")]
+position = Vector2(0, 13)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Player/Hotairballoon/Rope_Container"]
+position = Vector2(0, 25.5)
+node_a = NodePath("../rope")
+node_b = NodePath("../rope2")
+
+[node name="rope2" parent="Player/Hotairballoon/Rope_Container" instance=ExtResource("15_orpyb")]
+position = Vector2(0, 38)
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="Player/Hotairballoon/Rope_Container"]
+position = Vector2(0, 50.5)
+node_a = NodePath("../rope2")
+node_b = NodePath("../rope3")
+
+[node name="rope3" parent="Player/Hotairballoon/Rope_Container" instance=ExtResource("15_orpyb")]
+position = Vector2(0, 63)
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="Player/Hotairballoon/Rope_Container"]
+position = Vector2(0, 75.5)
+node_a = NodePath("../rope3")
+node_b = NodePath("../rope4")
+
+[node name="rope4" parent="Player/Hotairballoon/Rope_Container" instance=ExtResource("15_orpyb")]
+position = Vector2(0, 88)
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="Player/Hotairballoon/Rope_Container"]
+position = Vector2(0, 100.5)
+node_a = NodePath("../rope4")
+node_b = NodePath("../rope5")
+
+[node name="rope5" parent="Player/Hotairballoon/Rope_Container" instance=ExtResource("15_orpyb")]
+position = Vector2(0, 113)
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="Player/Hotairballoon/Rope_Container"]
+position = Vector2(0, 125.5)
+node_a = NodePath("../rope5")
+node_b = NodePath("../rope6")
+
+[node name="rope6" parent="Player/Hotairballoon/Rope_Container" instance=ExtResource("15_orpyb")]
+position = Vector2(0, 138)
+
+[node name="PinJoint2D6" type="PinJoint2D" parent="Player/Hotairballoon/Rope_Container"]
+position = Vector2(0, 150.5)
+node_a = NodePath("../rope6")
+node_b = NodePath("../rope7")
+
+[node name="rope7" parent="Player/Hotairballoon/Rope_Container" instance=ExtResource("15_orpyb")]
+position = Vector2(0, 163)
+
+[node name="PinJoint2D7" type="PinJoint2D" parent="Player/Hotairballoon/Rope_Container"]
+position = Vector2(0, 175.5)
+node_a = NodePath("../rope7")
+node_b = NodePath("../rope8")
+
+[node name="rope8" parent="Player/Hotairballoon/Rope_Container" instance=ExtResource("15_orpyb")]
+position = Vector2(0, 188)
+
+[node name="PinJoint2D8" type="PinJoint2D" parent="Player/Hotairballoon/Rope_Container"]
+position = Vector2(0, 200.5)
+node_a = NodePath("../rope8")
+node_b = NodePath("../rope9")
+
+[node name="rope9" parent="Player/Hotairballoon/Rope_Container" instance=ExtResource("15_orpyb")]
+position = Vector2(0, 213)
+
+[node name="PinJoint2D9" type="PinJoint2D" parent="Player/Hotairballoon/Rope_Container"]
+position = Vector2(0, 225.5)
+node_a = NodePath("../rope9")
+node_b = NodePath("../rope10")
+
+[node name="rope10" parent="Player/Hotairballoon/Rope_Container" instance=ExtResource("15_orpyb")]
+position = Vector2(0, 238)
+
+[node name="PinJoint2D10" type="PinJoint2D" parent="Player/Hotairballoon/Rope_Container"]
+position = Vector2(0, 250.5)
+node_a = NodePath("../rope10")
+node_b = NodePath("../rope11")
+
+[node name="rope11" parent="Player/Hotairballoon/Rope_Container" instance=ExtResource("15_orpyb")]
+position = Vector2(0, 263)
+
+[node name="PinJoint2D11" type="PinJoint2D" parent="Player/Hotairballoon/Rope_Container"]
+position = Vector2(0, 275.5)
+node_a = NodePath("../rope11")
+node_b = NodePath("../rope12")
+
+[node name="rope12" parent="Player/Hotairballoon/Rope_Container" instance=ExtResource("15_orpyb")]
+position = Vector2(0, 288)
+
+[node name="PinJoint2D12" type="PinJoint2D" parent="Player/Hotairballoon/Rope_Container"]
+position = Vector2(0, 300.5)
+node_a = NodePath("../rope12")
+node_b = NodePath("../rope13")
+
+[node name="rope13" parent="Player/Hotairballoon/Rope_Container" instance=ExtResource("15_orpyb")]
+position = Vector2(0, 313)
+
+[node name="PinJoint2D13" type="PinJoint2D" parent="Player/Hotairballoon/Rope_Container"]
+position = Vector2(0, 325.5)
+node_a = NodePath("../rope13")
+node_b = NodePath("../../../../body/ropeHolder")
+
+[node name="playerAnimation" type="AnimationPlayer" parent="Player"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_xms8q")
+}
 
 [connection signal="hurt" from="body/targetbody/Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="animation_finished" from="Eyes Animation" to="." method="_on_eyes_animation_animation_finished"]

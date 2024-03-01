@@ -1,10 +1,121 @@
-[gd_scene load_steps=4 format=3 uid="uid://cldxam8hurqh2"]
+[gd_scene load_steps=8 format=3 uid="uid://cldxam8hurqh2"]
 
+[ext_resource type="Script" path="res://scenes/cars/payload.gd" id="1_dbhuk"]
 [ext_resource type="Texture2D" uid="uid://ccf6qaajgjhx0" path="res://assets/sprites/palette/train/payload/payload_car.png" id="1_exxxk"]
 [ext_resource type="Texture2D" uid="uid://biy33hsvmofee" path="res://assets/sprites/palette/train/payload/botari2.png" id="2_n1jxd"]
 [ext_resource type="Texture2D" uid="uid://dh5cyfq1eqob0" path="res://assets/sprites/palette/train/locomotive/wheel.png" id="4_xguu2"]
 
+[sub_resource type="Animation" id="Animation_vbxq1"]
+resource_name = "run"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("car/wheels:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -38), Vector2(-3, -38), Vector2(0, -38)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("car/wheels/wheel1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("car/wheels/wheel2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("car/wheels/wheel3:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_phmlg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("car/wheels:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -38)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("car/wheels/wheel1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("car/wheels/wheel2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("car/wheels/wheel3:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cyoj3"]
+_data = {
+"RESET": SubResource("Animation_phmlg"),
+"run": SubResource("Animation_vbxq1")
+}
+
 [node name="payload" type="Node2D" groups=["train_car"]]
+script = ExtResource("1_dbhuk")
 
 [node name="car" type="Sprite2D" parent="."]
 position = Vector2(0, 38)
@@ -28,3 +139,9 @@ texture = ExtResource("4_xguu2")
 [node name="wheel3" type="Sprite2D" parent="car/wheels"]
 position = Vector2(82, 63)
 texture = ExtResource("4_xguu2")
+
+[node name="run" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_cyoj3")
+}

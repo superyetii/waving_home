@@ -4,6 +4,7 @@ extends Node2D
 @onready var platformPlayer = %platformPlayer
 @onready var onwatch = false #refers to the state of the eyes of the locomotive
 @onready var timer = %Timer
+@onready var playerAnim = %playerAnimation
 
 var health = 200
 
@@ -20,6 +21,7 @@ signal readytolisten
 func _ready():
 	platformPlayer.play("extend")
 	animationPlayer.play("run")
+	playerAnim.play("move")
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

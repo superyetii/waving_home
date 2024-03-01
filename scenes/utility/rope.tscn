@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbbqt32vee7we"]
+
+[ext_resource type="Texture2D" uid="uid://o3gmhg1vukbh" path="res://assets/sprites/palette/player/rope.png" id="1_dkt8l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n7nl3"]
+radius = 2.0
+height = 24.0
+
+[node name="rope" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dkt8l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_n7nl3")
