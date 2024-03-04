@@ -6,7 +6,7 @@ extends CharacterBody2D
 var knockback = Vector2.ZERO
 @onready var target = get_tree().get_first_node_in_group("subtarget")
 @onready var damage_popup = %damage_popup
-var crit = true
+var crit = false
 @onready var blinkImage = %blink
 @onready var blinkTimer = %blinkTimer
 

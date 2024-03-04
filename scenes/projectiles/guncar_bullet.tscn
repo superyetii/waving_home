@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://qxja3mvc1uq6"]
 
 [ext_resource type="Script" path="res://scenes/projectiles/guncar_bullet.gd" id="1_fvy71"]
-[ext_resource type="Texture2D" uid="uid://1gdh1w3hpqd6" path="res://assets/sprites/new/train/gun_car/bullet.png" id="2_jtbxs"]
+[ext_resource type="Texture2D" uid="uid://bg5ud7n5abese" path="res://assets/sprites/palette/train/gun_car/new_bullet.png" id="2_4mf4u"]
 [ext_resource type="AudioStream" uid="uid://o4nlrit1e8gu" path="res://assets/sounds/hit_5(gun).wav" id="3_jkqgj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5quc"]
@@ -14,7 +14,7 @@ collision_mask = 4
 script = ExtResource("1_fvy71")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_jtbxs")
+texture = ExtResource("2_4mf4u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.249998, 0.249998)
