@@ -1,0 +1,237 @@
+[gd_scene load_steps=19 format=3 uid="uid://dt3f08std6ebb"]
+
+[ext_resource type="Script" path="res://scenes/UI/ui_second.gd" id="1_5w4k1"]
+[ext_resource type="Texture2D" uid="uid://ba6r3f8utbils" path="res://assets/sprites/palette/ui/abilities/ability_box.png" id="1_caxc2"]
+[ext_resource type="FontFile" uid="uid://cw5i3soj2hrbj" path="res://assets/fonts/IrishGrover-Regular.ttf" id="2_dn5qj"]
+[ext_resource type="Texture2D" uid="uid://155gvw7po1cg" path="res://assets/sprites/palette/ui/to_press/incoming_bar.png" id="3_5ake7"]
+[ext_resource type="Texture2D" uid="uid://gi4u7r48hqsu" path="res://assets/sprites/palette/ui/to_press/current_circle.png" id="4_qqk78"]
+[ext_resource type="Texture2D" uid="uid://b5xufdxrniqye" path="res://assets/sprites/palette/ui/wave_timer/timer_bg.png" id="6_cfpvy"]
+[ext_resource type="Texture2D" uid="uid://bv4rpop1r50yr" path="res://assets/sprites/palette/ui/to_press/current_state.png" id="6_sx2sa"]
+[ext_resource type="Texture2D" uid="uid://cq0os8bmay7o6" path="res://assets/sprites/palette/ui/stats_meter/meter_bg.png" id="8_tgtye"]
+[ext_resource type="Texture2D" uid="uid://khdmueb40ig1" path="res://assets/sprites/palette/ui/stats_meter/stats_meter.png" id="8_x46yl"]
+[ext_resource type="Texture2D" uid="uid://dghy6twv2jpmn" path="res://assets/sprites/palette/ui/stats_meter/firebox_meter.png" id="9_8aigh"]
+[ext_resource type="Texture2D" uid="uid://b820pc853755h" path="res://assets/sprites/palette/ui/stats_meter/meter_border_dark.png" id="9_kb8au"]
+[ext_resource type="Texture2D" uid="uid://b4717jouxli7w" path="res://assets/sprites/palette/ui/stats_meter/durability_meter.png" id="10_miuu5"]
+[ext_resource type="Texture2D" uid="uid://b3ap5kwvwcoqg" path="res://assets/sprites/palette/ui/stats_meter/bullet_meter.png" id="11_uhjxw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_poove"]
+font = ExtResource("2_dn5qj")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_1jqf1"]
+font = ExtResource("2_dn5qj")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_pav2b"]
+font = ExtResource("2_dn5qj")
+font_size = 48
+font_color = Color(0.980392, 0.960784, 0.847059, 1)
+outline_size = 8
+outline_color = Color(0.129412, 0.0941176, 0.105882, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oewg6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_othfc"]
+bg_color = Color(0.94902, 0.670588, 0.215686, 1)
+
+[node name="ui_second" type="CanvasLayer"]
+script = ExtResource("1_5w4k1")
+
+[node name="abilities_group" type="Sprite2D" parent="."]
+
+[node name="Abilities" type="Label" parent="abilities_group"]
+offset_left = 198.0
+offset_top = 837.0
+offset_right = 313.0
+offset_bottom = 876.0
+text = "Abilities
+"
+label_settings = SubResource("LabelSettings_poove")
+
+[node name="ability1" type="Sprite2D" parent="abilities_group"]
+position = Vector2(93, 946)
+texture = ExtResource("1_caxc2")
+
+[node name="Label" type="Label" parent="abilities_group/ability1"]
+offset_left = -10.0
+offset_top = 65.0
+offset_right = 30.0
+offset_bottom = 104.0
+text = "1"
+label_settings = SubResource("LabelSettings_1jqf1")
+
+[node name="ability2" type="Sprite2D" parent="abilities_group"]
+position = Vector2(256, 946)
+texture = ExtResource("1_caxc2")
+
+[node name="Label2" type="Label" parent="abilities_group/ability2"]
+offset_left = -10.0
+offset_top = 65.0
+offset_right = 30.0
+offset_bottom = 104.0
+text = "2
+"
+label_settings = SubResource("LabelSettings_1jqf1")
+
+[node name="ability3" type="Sprite2D" parent="abilities_group"]
+position = Vector2(419, 946)
+texture = ExtResource("1_caxc2")
+
+[node name="Label3" type="Label" parent="abilities_group/ability3"]
+offset_left = -10.0
+offset_top = 65.0
+offset_right = 30.0
+offset_bottom = 104.0
+text = "3"
+label_settings = SubResource("LabelSettings_1jqf1")
+
+[node name="input_group" type="Sprite2D" parent="."]
+
+[node name="incoming" type="Sprite2D" parent="input_group"]
+position = Vector2(1439, 953)
+texture = ExtResource("3_5ake7")
+
+[node name="center" type="Sprite2D" parent="input_group"]
+position = Vector2(960, 953)
+texture = ExtResource("4_qqk78")
+
+[node name="current_state" type="Sprite2D" parent="input_group"]
+visible = false
+position = Vector2(960, 845)
+texture = ExtResource("6_sx2sa")
+
+[node name="wave_timer" type="Sprite2D" parent="."]
+
+[node name="waveTimer_bg" type="Sprite2D" parent="wave_timer"]
+position = Vector2(960, 54)
+texture = ExtResource("6_cfpvy")
+
+[node name="Wave Timer" type="Label" parent="wave_timer"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 820.0
+offset_top = 24.0
+offset_right = 1099.0
+offset_bottom = 82.0
+grow_horizontal = 2
+text = "4:49"
+label_settings = SubResource("LabelSettings_pav2b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="stats" type="Sprite2D" parent="."]
+
+[node name="fb_meter" type="Sprite2D" parent="stats"]
+
+[node name="bg" type="Sprite2D" parent="stats/fb_meter"]
+position = Vector2(193.5, 178)
+texture = ExtResource("8_tgtye")
+
+[node name="firebox_meter" type="ProgressBar" parent="stats/fb_meter"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 60)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 92.5
+offset_top = 147.0
+offset_right = 292.5
+offset_bottom = 207.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxEmpty_oewg6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_othfc")
+value = 60.0
+show_percentage = false
+
+[node name="border" type="Sprite2D" parent="stats/fb_meter"]
+position = Vector2(193.5, 178)
+texture = ExtResource("9_kb8au")
+
+[node name="db_meter" type="Sprite2D" parent="stats"]
+
+[node name="bg" type="Sprite2D" parent="stats/db_meter"]
+position = Vector2(193.5, 288)
+texture = ExtResource("8_tgtye")
+
+[node name="durability_meter" type="ProgressBar" parent="stats/db_meter"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 60)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 92.5
+offset_top = 257.0
+offset_right = 292.5
+offset_bottom = 317.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxEmpty_oewg6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_othfc")
+value = 60.0
+show_percentage = false
+
+[node name="border" type="Sprite2D" parent="stats/db_meter"]
+position = Vector2(193.5, 288)
+texture = ExtResource("9_kb8au")
+
+[node name="am_meter" type="Sprite2D" parent="stats"]
+
+[node name="bg" type="Sprite2D" parent="stats/am_meter"]
+position = Vector2(193.5, 398)
+texture = ExtResource("8_tgtye")
+
+[node name="ammunition_meter" type="ProgressBar" parent="stats/am_meter"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 60)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 92.5
+offset_top = 367.0
+offset_right = 292.5
+offset_bottom = 427.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxEmpty_oewg6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_othfc")
+value = 60.0
+show_percentage = false
+
+[node name="border" type="Sprite2D" parent="stats/am_meter"]
+position = Vector2(193.5, 398)
+texture = ExtResource("9_kb8au")
+
+[node name="meter" type="Sprite2D" parent="stats"]
+visible = false
+position = Vector2(668, 848)
+texture = ExtResource("8_x46yl")
+
+[node name="firebox" type="Sprite2D" parent="stats"]
+position = Vector2(0, 128)
+texture = ExtResource("9_8aigh")
+centered = false
+
+[node name="durability" type="Sprite2D" parent="stats"]
+position = Vector2(0, 238)
+texture = ExtResource("10_miuu5")
+centered = false
+
+[node name="ammunition" type="Sprite2D" parent="stats"]
+position = Vector2(0, 348)
+texture = ExtResource("11_uhjxw")
+centered = false

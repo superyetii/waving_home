@@ -13,7 +13,7 @@ func _ready():
 		pos.x += 260
 	gustav = cars[0]
 	
-	ui_interface.command_fire.connect(gustav.command_fire)
+	#ui_interface.command_fire.connect(gustav.command_fire)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

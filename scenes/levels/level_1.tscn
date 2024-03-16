@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dtbeu30b723di" path="res://scenes/utility/mob_detection_area.tscn" id="7_18ag5"]
 [ext_resource type="PackedScene" uid="uid://dy2ffpl8b2h43" path="res://scenes/utility/subtarget_area.tscn" id="8_uka4e"]
 [ext_resource type="Texture2D" uid="uid://cnofnpftn7ydl" path="res://assets/sprites/palette/bg/floor.png" id="9_gi7jk"]
-[ext_resource type="PackedScene" uid="uid://xmh38rxpgbup" path="res://scenes/UI/ui_interface.tscn" id="11_lwb2k"]
+[ext_resource type="PackedScene" uid="uid://dt3f08std6ebb" path="res://scenes/UI/ui_second.tscn" id="12_48hsa"]
 [ext_resource type="PackedScene" uid="uid://bde0iu3ma23e" path="res://scenes/levels/camera_2d.tscn" id="12_b1r1d"]
 
 [sub_resource type="Resource" id="Resource_5i4fr"]
@@ -37,9 +37,8 @@ position = Vector2(1754.92, -666.563)
 scale = Vector2(3.00216, 2.64851)
 texture = ExtResource("2_lox1a")
 
-[node name="team" parent="." node_paths=PackedStringArray("ui_interface") instance=ExtResource("2_bja6q")]
+[node name="team" parent="." instance=ExtResource("2_bja6q")]
 unique_name_in_owner = true
-ui_interface = NodePath("../UI_Interface")
 
 [node name="mobspawn_area" parent="." instance=ExtResource("3_3ipwp")]
 position = Vector2(3170, -569)
@@ -58,12 +57,12 @@ scale = Vector2(3.60521, 3.66234)
 texture = ExtResource("9_gi7jk")
 
 [node name="Camera2D" parent="." instance=ExtResource("12_b1r1d")]
-position = Vector2(1668, -577)
-
-[node name="UI_Interface" parent="." instance=ExtResource("11_lwb2k")]
+position = Vector2(1668, -481)
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 300.0
 one_shot = true
 autostart = true
+
+[node name="ui_second" parent="." instance=ExtResource("12_48hsa")]
